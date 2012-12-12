@@ -14,6 +14,7 @@ gem 'devise-russian'
 
 gem 'email_validator'
 
+gem 'thin'
 
 # Gems used only for assets and not required
 # in production environments by default.

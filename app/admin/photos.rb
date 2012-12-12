@@ -39,7 +39,7 @@ ActiveAdmin.register Photo do
   filter :created_at, label: 'Появилась в...'
   index title: 'Фотографии', as: :grid do |photo|
     resource_selection_cell photo
-    image_tag photo.link
+    img src: photo.link, width: "200px"
     p %(Автор: @#{photo.author})
   end
 end
