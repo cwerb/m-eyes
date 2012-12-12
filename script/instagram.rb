@@ -9,7 +9,7 @@ class Photo < ActiveRecord::Base
   validates :link, uniqueness: true
   validates :author, presence: true
   def self.last_instagram_id
-    (Photo.select(:sid).count > 0 ? Photo.select(:sid).last.service_id : Instagram.tag_recent_media('love').data.first.created_time).to_i * 1000
+    (Photo.select(:sid).count > 0 ? Photo.select(:sid).last.sid : Instagram.tag_recent_media('love').data.first.created_time).to_i * 1000
   end
 end
 

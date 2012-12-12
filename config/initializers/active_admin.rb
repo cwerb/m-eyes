@@ -5,7 +5,7 @@ ActiveAdmin.setup do |config|
   # Set the title that is displayed on the main layout
   # for each of the active admin pages.
   #
-  config.site_title = "M Eyes"
+  config.site_title = "Maybgelline Instagram event"
 
   # Set the link url for the title. For example, to take
   # users to your main site. Defaults to no link.
@@ -92,7 +92,7 @@ ActiveAdmin.setup do |config|
   # roots for each namespace.
   #
   # Default:
-  # config.root_to = 'dashboard#index'
+  config.root_to = 'photos#index'
 
   # == Admin Comments
   #
@@ -146,4 +146,18 @@ ActiveAdmin.setup do |config|
   #
   # Set the CSV builder separator (default is ",")
   # config.csv_column_separator = ','
+end
+
+
+module ActiveAdmin
+  module Views
+    module Pages
+      class Base < Arbre::HTML::Document
+
+        def build_footer
+        end
+
+      end
+    end
+  end
 end
