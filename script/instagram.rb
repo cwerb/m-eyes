@@ -2,14 +2,14 @@
 require 'active_record'
 ActiveRecord::Base.establish_connection YAML::load(File.open 'config/database.yml')[ENV["RAILS_ENV"] || 'development']
 
-hashtag = 'love'
+@hashtag = 'love'
 
 class Photo < ActiveRecord::Base
   attr_accessible :author, :is_legal, :link, :sid
   validates :link, uniqueness: true
   validates :author, presence: true
   def self.last_instagram_id
-    (Photo.select(:sid).count > 0 ? Photo.select(:sid).last.service_id : Instagram.tag_recent_media(hashtag).data.first.created_time).to_i * 1000
+    (Photo.select(:sid).count > 0 ? Photo.select(:sid).last.service_id : Instagram.tag_recent_media(@hashtag).data.first.created_time).to_i * 1000
   end
 end
 
@@ -20,7 +20,7 @@ Instagram.configure do |config|
 end
 
 parse = lambda { |start_id = 123456789012345|
-  answer = Instagram.tag_recent_media 'hashtag', max_tag_id: start_id, min_tag_id: Photo.last_instagram_id
+  answer = Instagram.tag_recent_media @hashtag, max_tag_id: start_id, min_tag_id: Photo.last_instagram_id
   parse.call(answer.pagination.next_max_tag_id.to_i) if answer.pagination.next_max_tag_id.to_i > Photo.last_instagram_id and answer.data.last.created_time > start_time
   answer.data.each { |status|
     Photo.create(
