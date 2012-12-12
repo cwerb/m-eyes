@@ -1,0 +1,397 @@
+// Place all the styles related to the frontend controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+/* CSS Document */
+
+
+
+#conteiner_bloc_frame {
+  margin: 0 auto;
+  width: 970px;
+  font-family: arial;
+
+}
+
+#conteiner_bloc_frame .bloc_centr {
+  background-color: #E6E6E6;
+  box-shadow: 1px 6px 9px rgba(0, 0, 0, 0.3);
+  float: left;
+  position:absolute;
+  height: 955px;
+
+}
+
+
+#conteiner_bloc_frame .bloc_centr .tovar {
+  background-image:url("../img/tovaru.png");
+  background-repeat:no-repeat;
+  height: 600px;
+}
+
+
+#conteiner_bloc_frame .bloc_right {
+  background-color: #E0E0E0;
+  float: right;
+  width: 34%;
+  height: 955px;
+
+}
+
+#conteiner_bloc_frame .koncurs {
+  margin-left: 45px;
+
+}
+#conteiner_bloc_frame .pra_inst_txt {
+  font-size:12px;
+  font-weight:bold;
+  color: #525252;
+}
+
+#conteiner_bloc_frame .bloc_right .bloc_right_buton {
+  height:auto;
+  margin-left:43px;
+
+}
+
+#conteiner_bloc_frame .bloc_right .bloc_right_buton div{
+  background-repeat:no-repeat;
+  height:32px;
+  margin-left: 3px;
+  cursor:pointer;
+
+}
+
+
+#conteiner_bloc_frame .bloc_right .bloc_right_buton span {
+  bottom: -8px;
+  font-size: 12px;
+  margin-left: 11px;
+  position: relative;
+}
+
+#conteiner_bloc_frame .bloc_right .bloc_right_buton .buton_foto_uchasnic {
+  background-image:url("../img/buton_foto_uchasnic.png");
+  width: 101px;
+  display: inline-block;
+  float: left;
+
+}
+
+#conteiner_bloc_frame .bloc_right .bloc_right_buton .buton_pravila {
+  background-image:url("../img/buton_pravila.png");
+  display: inline-block;
+  float: left;
+  width: 68px;
+
+}
+
+#conteiner_bloc_frame .bloc_right .bloc_right_buton .buton_instrukcia {
+  background-image:url("../img/buton_instrukcia.png");
+  display: inline-block;
+  width: 91px;
+
+}
+
+#conteiner_bloc_frame .bloc_right .bloc_right_buton .buton_foto_uchasnic.active {
+  background-image:url("../img/buton_foto_uchasnic.png");
+  background-position:bottom;
+  color:#FFF;
+  width: 101px;
+  display: inline-block;
+  float: left;
+
+}
+
+#conteiner_bloc_frame .bloc_right .bloc_right_buton .buton_pravila.active {
+  background-image:url("../img/buton_pravila.png");
+  background-position:bottom;
+  color:#FFF;
+  display: inline-block;
+  float: left;
+  width: 68px;
+
+}
+
+#conteiner_bloc_frame .bloc_right .bloc_right_buton .buton_instrukcia.active {
+  background-image:url("../img/buton_instrukcia.png");
+  background-position:bottom;
+  color:#FFF;
+  display: inline-block;
+  width: 91px;
+
+}
+
+#conteiner_bloc_frame .bloc_right .foto_uchasnic {
+
+  margin: 19px 0 0 45px;
+  width: 263px;
+
+}
+
+
+#conteiner_bloc_frame .bloc_right .pravila {
+  display:none;
+  color: #525252;
+  font-size: 13px;
+  margin: 17px 0 0 45px;
+  width: 265px;
+
+
+}
+
+#conteiner_bloc_frame .bloc_right .instrukcia {
+  display:none;
+  color: #525252;
+  font-size: 13px;
+  margin: 17px 0 0 45px;
+  width: 265px;
+
+}
+
+
+/*Центральный блок*/
+
+
+#conteiner_bloc_frame .bloc_centr iframe {
+  margin-left: 8px;
+  margin-right: 7px;
+  margin-top: 8px;
+}
+
+.blu {
+  color:#438bc5;
+  text-decoration: underline;
+}
+
+
+.foto_uchasnic .photos {
+  text-align: justify;
+  font-size: 0;
+}
+.foto_uchasnic .photos img {
+  display: inline;
+  zoom:1;
+  display: inline-block;
+  margin-bottom: 11px;
+}
+.foto_uchasnic  .links .line,
+.foto_uchasnic .photos .line {
+  display: inline;
+  zoom:1;
+  display: inline-block;
+  height: 1px;
+  overflow: hidden;
+  width:100%;
+}
+.foto_uchasnic  .links {
+  text-align: justify;
+}
+.foto_uchasnic  .links a {
+  display: inline;
+  zoom:1;
+  display: inline-block;
+  background-image: url('/img/list_photos_ico_prevnext.png');
+  background-repeat: no-repeat;
+  text-decoration: none;
+  font-size: 12px;
+  color: #6e6e6e;
+}
+.foto_uchasnic  .links .prev {
+  background-position: 0 6px;
+  padding-left: 14px;
+}
+.foto_uchasnic  .links .next {
+  background-position: right -44px;
+  padding-right: 14px;
+}
+
+#conteiner_bloc_frame .bloc_centr .liquid .next,
+#conteiner_bloc_frame .bloc_centr .liquid .previous {
+  cursor: pointer;
+}
+
+#liquid {
+  background: #fff;
+  position: relative;
+  margin-top: 7px;
+  left: 9px;
+  width: 638px;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+  border-top: none;
+  box-shadow: 0 1px #ddd;
+}
+#liquid img {
+  position: relative;
+  top: 28px;
+}
+
+
+
+.photos { position: relative; }
+.photos img { cursor: pointer; }
+.bigImageContainer {
+  width: 263px;
+  height: 248px;
+  overflow: hidden;
+  background: #000;
+  position: absolute;
+  top: 0; left: 0;
+  z-index: 500;
+  text-align: center;
+}
+.topLine {
+  width: 241px;
+  padding: 9px 9px 0 13px;
+  height: 22px;
+  overflow: hidden;
+  background: url(/img/topLine.jpg) 0 0 repeat-x #000;
+}
+.topLine a {
+  font-size: 12px;
+  color: #fff;
+  font-family: Arial;
+  text-transform: lowercase;
+  line-height: 14px;
+}
+a.name {
+  float: left;
+  background: url(/img/nickName.png) 0 0 no-repeat;
+  padding: 0 0 0 20px;
+}
+a.closePhoto {
+  float: right;
+}
+
+.s-tovar h2 {
+  font-size: 19px;
+  font-weight: normal;
+  margin: 19px 0 0 12px;
+}
+
+.s-video .video-footer {
+  position: relative;
+  min-height: 62px;
+  border-radius: 0 0 4px 4px;
+  background: #fff;
+  margin: 0 7px 0 8px;
+  border: 1px solid #ddd;
+  border-top: none;
+  box-shadow: 0 1px #ddd;
+}
+.s-video .video-footer p {
+  margin-top: 0;
+}
+.s-video .video-footer .title {
+  font-size: 14px;
+  margin-left: 16px;
+  padding-top: 13px;
+  margin-bottom: 3px;
+}
+.s-video .video-footer .dscr {
+  font-size: 12px;
+  margin-left: 16px;
+  margin-bottom: 0;
+  color: #666;
+}
+.s-video .video-footer .v-cnt {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  margin-top: -8px;
+  color: #666;
+  font-size: 16px;
+  font-weight: bold;
+}
+.s-video .video-footer .v-cnt small {
+  font-weight: normal;
+}
+
+#liquid .hovered-overlay {
+  position: absolute;
+  width: 180px;
+  height: 100%;
+  padding: 5px 0;
+  background: #fff;
+  box-shadow: 0 3px 10px #aaa;
+  left: 0;
+  top: -5px;
+  z-index: 2;
+  display: none;
+  text-align: center;
+  margin-left: -1px;
+  cursor: pointer;
+}
+#liquid .hovered-overlay .mask {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+}
+
+.s-tab .send-nick {
+  margin: 11px 0 0 0;
+}
+.s-tab  .send-nick input {
+  line-height: 27px;
+  height: 27px;
+  width: 98px;
+  border: 1px solid #b9b9b9;
+  border-radius: 1px;
+  box-shadow: 0 -1px #b9b9b9;
+  padding: 0;
+  padding-left: 6px;
+  color: #999999;
+  font-size: 12px;
+  font-family : Arial;
+
+  vertical-align: middle;
+}
+.s-tab  .send-nick input:focus {
+  color: #525252;
+}
+.s-tab  .send-nick button {
+  border: 1px solid #b9b9b9;
+  border-radius: 1px;
+  width: 42px;
+  height: 30px;
+  cursor: pointer;
+
+  vertical-align: middle;
+  position: relative;
+
+  background: -moz-linear-gradient(top, #fafafa, #dddddd);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fafafa), color-stop(100%,#dddddd));
+  background: -webkit-linear-gradient(top, #fafafa, #dddddd);
+  background: -o-linear-gradient(top, #fafafa, #dddddd);
+  background: -ms-linear-gradient(top, #fafafa, #dddddd);
+  background: linear-gradient(top, #fafafa, #dddddd);
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled='true',startColorstr=#fafafa,endColorstr=#dddddd,GradientType=0); zoom: 1;
+  }
+.s-tab  .send-nick button b {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: url('/img/form_link_button.png') center no-repeat;
+}
+.s-tab  .send-nick p {
+  font-weight: bold;
+}
+.s-tab  .send-nick {
+  position: relative;
+}
+.s-tab  .send-nick .error {
+  position: absolute;
+  font-size: 10px;
+  color: red;
+  top: 33px;
+  left: 0;
+}
+.s-tab  .send-nick .error-email {
+  left: 50%;
+  margin-left: -21px;
+}

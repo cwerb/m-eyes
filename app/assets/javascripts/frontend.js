@@ -1,0 +1,209 @@
+// JavaScript Document
+
+$(document).ready(function() {
+
+
+    /*Кнопка Фото учасниц*/
+    var $buton_foto_uchasnic = $("#conteiner_bloc_frame .buton_foto_uchasnic");
+    $buton_foto_uchasnic.addClass("active");
+    $buton_foto_uchasnic.click(function() {
+
+        if ($buton_foto_uchasnic.hasClass("active")) {
+
+
+
+        } else {
+
+            $buton_foto_uchasnic.addClass("active");
+            $buton_pravila.removeClass("active");
+            $buton_instrukcia.removeClass("active");
+            $("#conteiner_bloc_frame .instrukcia").hide();
+            $("#conteiner_bloc_frame .pravila").hide();
+            $("#conteiner_bloc_frame .foto_uchasnic").show();
+
+        }
+    });
+
+
+    /*Кнопка Правила*/
+    var $buton_pravila = $("#conteiner_bloc_frame .buton_pravila");
+    $buton_pravila.click(function() {
+
+        if ($buton_pravila.hasClass("active")) {
+
+
+        } else {
+            $buton_pravila.addClass("active");
+            $buton_foto_uchasnic.removeClass("active");
+            $buton_instrukcia.removeClass("active");
+            $("#conteiner_bloc_frame .instrukcia").hide();
+            $("#conteiner_bloc_frame .foto_uchasnic").hide();
+            $("#conteiner_bloc_frame .pravila").show();
+        }
+    });
+
+
+    /*Кнопка Инструкция*/
+    var $buton_instrukcia = $("#conteiner_bloc_frame .buton_instrukcia");
+    $buton_instrukcia.click(function() {
+
+        if ($buton_instrukcia.hasClass("active")) {
+
+
+
+
+        } else {
+            $buton_instrukcia.addClass("active");
+            $buton_foto_uchasnic.removeClass("active");
+            $buton_pravila.removeClass("active");
+            $("#conteiner_bloc_frame .pravila").hide();
+            $("#conteiner_bloc_frame .foto_uchasnic").hide();
+            $("#conteiner_bloc_frame .instrukcia").show();
+
+        }
+    });
+
+
+
+
+    $(document).ready(function() {$.ajax({url: '/gallery/1.js', dataType: 'script'})});
+
+    $('.foto_uchasnic .links a').click(function(){
+
+        //$('.foto_uchasnic .photos').stop().animate({opacity: 0},250);
+
+        $('.foto_uchasnic').trigger('load');
+
+        return false;
+    });
+
+    $('.foto_uchasnic .photos').data('event-list',0);
+    $('.foto_uchasnic .photos img').live('click', function(){
+        if ( $(this).closest('.bigImageContainer').length > 0 ) // следующая картинка
+        {
+            if ( $('.foto_uchasnic .photos').data('event-list') == 1 ) return false;
+
+            var style = $('.bigImageContainer').attr('style');
+            $('.foto_uchasnic .photos').data('event-list',1);
+            var ipos = $('.foto_uchasnic .photos').data('img-pos')*1;
+
+            var $img = $('.foto_uchasnic .photos .imgitem:eq(' + ipos +')');
+            if ( ipos+1 < $('.foto_uchasnic .photos .imgitem').length )
+            {
+                $('.foto_uchasnic .photos').data('event-list',0);
+                $img.next().trigger('click');
+                $('.bigImageContainer').attr('style', style);
+            }
+            else
+            {
+                $('.foto_uchasnic').trigger('load', [function()
+                {
+                    $('.foto_uchasnic .photos').data('event-list',0)
+                    $('.foto_uchasnic .photos .imgitem:first').trigger('click');
+                    $('.bigImageContainer').attr('style', style);
+                }]);
+            }
+
+            return false;
+        }
+
+        $('.bigImageContainer').remove();
+
+        $('.foto_uchasnic .photos').data('img-pos', $('.foto_uchasnic .photos .imgitem').index( $(this) ) );
+
+        var $p = $('.foto_uchasnic .photos');
+        var left = $(this).offset().left-90;
+        var top = $(this).offset().top-90;
+
+        $('.foto_uchasnic .photos').prepend('<div class="bigImageContainer"><div class="topLine"><a href="" class="name">@youlechka</a><a href="javascript:void(0)" class="closePhoto">закрыть</a></div><img src="' + $(this).attr('src') + '" height="100%" /></div>')
+
+        left = left - $p.offset().left-1;
+        top = top - $p.offset().top-1;
+        if ( left < 0 ) left = 0;
+        if ( top < 0 ) top = 0;
+        if ( left > 90 ) left = 0;
+        if ( $('.bigImageContainer').height()+top > $p.height() ) top = $p.height()-$('.bigImageContainer').height()-10;
+
+        $('.bigImageContainer').css({
+            left : 	left,
+            top:	top
+        });
+    });
+
+    $('.closePhoto').live('click', function(){
+        $('.bigImageContainer').remove();
+    });
+
+
+    // карусель
+    (function()
+    {
+        $('#liquid').jcarousel({
+            visible : 3,
+            scroll : 1,
+            wrap: 'circular'
+        });
+
+        $('#liquid').append('<div class="hovered-overlay"></div>');
+
+        var timeout_timer;
+        $('#liquid li').mouseenter(function(){
+            clearTimeout(timeout_timer);
+
+            var offset = $(this).offset().left - $('#liquid').offset().left;
+
+            $('#liquid .hovered-overlay').html(
+                $(this).html() + '<div class="mask"></div>'
+            );
+
+            $('#liquid .hovered-overlay').css({
+                left : offset,
+                display: 'block'
+            });
+
+            (function( elem )
+            {
+                timeout_timer = setTimeout(function()
+                {
+                    var offset = elem.offset().left - $('#liquid').offset().left;
+                    $('#liquid .hovered-overlay').css({
+                        left : offset
+                    });
+                },500);
+            })( $(this) );
+        });
+
+
+        $('#liquid').mouseleave(function()
+        {
+            $('#liquid .hovered-overlay').hide();
+        });
+        $('#liquid .jcarousel-prev,#liquid .jcarousel-next').mouseenter(function()
+        {
+            $('#liquid .hovered-overlay').hide();
+        });
+    })();
+
+
+    $('.s-tab  .send-nick button').click(function(){
+
+        $('.s-tab  .send-nick .error').html('');
+
+        var F = $(this).closest('form');
+        if ( F.find('input[name=login]')[0].value == '' )
+        {
+            F.find('.error-login').html('неверно введены данные');
+            return false;
+        }
+
+        if ( F.find('input[name=email]')[0].value == '' )
+        {
+            F.find('.error-login').html('неверно введены данные');
+            return false;
+        }
+
+        $('.s-tab  .send-nick *').hide();
+        $('.s-tab  .send-nick p').show();
+        return false;
+    });
+});
