@@ -5,28 +5,14 @@ ActiveAdmin.register Photo do
   scope :опубликованные
   scope :неопубликованные
   actions :index
-  batch_action :Разрешить, if: proc { @current_scope.scope_method == :непросмотренные } do |selection|
+  batch_action :Разрешить, if: proc { [:непросмотренные, :неопубликованные].include? @current_scope.scope_method } do |selection|
     Photo.find(selection).each do |i|
       i.is_legal = true
       i.save
     end
     redirect_to admin_photos_path
   end
-  batch_action :Разрешить, if: proc { @current_scope.scope_method == :неопубликованные } do |selection|
-    Photo.find(selection).each do |i|
-      i.is_legal = true
-      i.save
-    end
-    redirect_to admin_photos_path
-  end
-  batch_action :Запретить, if: proc { @current_scope.scope_method == :непросмотренные } do |selection|
-    Photo.find(selection).each do |i|
-      i.is_legal = false
-      i.save
-    end
-    redirect_to admin_photos_path
-  end
-  batch_action :Запретить, if: proc { @current_scope.scope_method == :опубликованные } do |selection|
+  batch_action :Запретить, if: proc { [:непросмотренные, :опубликованные].include? @current_scope.scope_method } do |selection|
     Photo.find(selection).each do |i|
       i.is_legal = false
       i.save
