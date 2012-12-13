@@ -89,14 +89,7 @@ $(document).ready(function() {
             else
             {
                 $(document).one('ajax:complete', function(){
-                    $('.foto_uchasnic > .photos > img').first().click();
-    				
-					// Kir V : заглушка на битые картинки
-					$('.foto_uchasnic img').unbind("error").bind('error', function()
-					{
-						$(this).unbind("error").attr("src", "/assets/img_error.jpg"); 
-						return false;
-					});
+                    $('.foto_uchasnic img:eq(1)').click();
                 });
                 $('.foto_uchasnic > .links > .next').click();
             }
@@ -216,9 +209,9 @@ $(document).ready(function() {
         $('.s-tab  .send-nick .error').html('');
 
         var F = $(this).closest('form');
-        if ( F.find('input[name=login]')[0].value == '' )
+        if ( F.find('input[name=email]')[0].value == '' )
         {
-            F.find('.error-login').html('неверно введены данные');
+            F.find('.error-login').html('введите email');
             return false;
         }
 
