@@ -90,6 +90,13 @@ $(document).ready(function() {
             {
                 $(document).one('ajax:complete', function(){
                     $('.foto_uchasnic > .photos > img').first().click();
+    				
+					// Kir V : заглушка на битые картинки
+					$('.foto_uchasnic img').unbind("error").bind('error', function()
+					{
+						$(this).unbind("error").attr("src", "/assets/img_error.jpg"); 
+						return false;
+					});
                 });
                 $('.foto_uchasnic > .links > .next').click();
             }
@@ -128,54 +135,79 @@ $(document).ready(function() {
     // карусель
     (function()
     {
+		// Kir V : подменяем картинки
+		var i = 1;
+		var link_arr = [
+			'http://www.maybelline.com.ru/PRODUCTS/Face/POWDER/AffinitonePowder.aspx',
+			'http://www.maybelline.com.ru/PRODUCTS/Face/CONCEALER/AffinitoneConcealer.aspx',
+			'http://www.maybelline.com.ru/PRODUCTS/Face/FOUNDATION/Affinitone.aspx',
+			'http://www.maybelline.com.ru/PRODUCTS/Eyes/MASCARA/OneByOneSatinBlack.aspx',
+			'http://www.maybelline.com.ru/PRODUCTS/Eyes/EYE_SHADOW/Color_Tattoo.aspx'
+		];
+		$('#liquid img').each(function(){
+			$(this).attr('src', '/assets/products/'+i+'.jpg');
+			$(this).data('url', link_arr[ i-1 ]);
+			i++;
+		});
+	
         $('#liquid').jcarousel({
-            visible : 3,
-            scroll : 1,
-            wrap: 'circular',
-            initCallback : function(c)
-            {
-                carousel = c;
-            }
-        });
-
-        $('#liquid').append('<div class="hovered-overlay"></div>');
-
-        var timeout_timer;
-        $('#liquid li').mouseenter(function(){
-            clearTimeout(timeout_timer);
-
-            var offset = $(this).offset().left - $('#liquid').offset().left;
-
-            $('#liquid .hovered-overlay').html(
-                $(this).html() + '<div class="mask"></div>'
-            );
-
-            $('#liquid .hovered-overlay').css({
-                left : offset,
-                display: 'block'
-            });
-
-            (function( elem )
-            {
-                timeout_timer = setTimeout(function()
-                {
-                    var offset = elem.offset().left - $('#liquid').offset().left;
-                    $('#liquid .hovered-overlay').css({
-                        left : offset
-                    });
-                },500);
-            })( $(this) );
-        });
-
-
-        $('#liquid').mouseleave(function()
-        {
-            $('#liquid .hovered-overlay').hide();
-        });
-        $('#liquid .jcarousel-prev,#liquid .jcarousel-next').mouseenter(function()
-        {
-            $('#liquid .hovered-overlay').hide();
-        });
+			visible : 3,
+			scroll : 1,
+			wrap: 'circular',
+			initCallback : function(c)
+			{
+				carousel = c;
+			}
+		});
+		
+		$('#liquid').append('<div class="hovered-overlay"></div>');
+	
+		var timeout_timer;
+		$('#liquid li').mouseenter(function(){
+			clearTimeout(timeout_timer);
+			
+			var offset = $(this).offset().left - $('#liquid').offset().left;
+			
+			$('#liquid .hovered-overlay').html(
+				'<a target="_blank" href="'+$(this).find('img').data('url')+'" class="mask"></a>' // kir v links
+			);
+			
+			$('#liquid .hovered-overlay').css({
+				left : offset,
+				display: 'block'
+			});
+			
+			(function( elem )
+			{
+				timeout_timer = setTimeout(function()
+				{
+					var offset = elem.offset().left - $('#liquid').offset().left;
+					$('#liquid .hovered-overlay').css({
+						left : offset
+					});
+				},300);
+			})( $(this) );
+		});
+		
+	
+		$('#liquid').mouseleave(function()
+		{
+			$('#liquid .hovered-overlay').hide();
+		});
+		$('#liquid .jcarousel-prev,#liquid .jcarousel-next').mouseenter(function()
+		{
+			$('#liquid .hovered-overlay').hide();
+		});
+		
+		// kir v - hack
+		$('#liquid').append('<div class="overlay-carousel-events"></div>');
+		$('#liquid .jcarousel-prev,#liquid .jcarousel-next').click(function(){
+			$('.overlay-carousel-events').show();
+			setTimeout(function()
+			{
+				$('.overlay-carousel-events').hide();
+			},500);
+		});
     })();
 
 
