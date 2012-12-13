@@ -66,8 +66,7 @@ $(document).ready(function() {
 
 
 
-    window.page_number = 1;
-    $.ajax({url: '/gallery/'+window.page_number+'.js', dataType: 'script'});
+    $.ajax({url: '/gallery/1.js', dataType: 'script'});
 
 
     $('.foto_uchasnic .photos').data('event-list',0);
