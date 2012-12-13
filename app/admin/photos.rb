@@ -20,16 +20,17 @@ ActiveAdmin.register Photo do
     redirect_to admin_photos_path
   end
 
+  filter :created_at, label: 'Появилась в...'
+
   sidebar :Операции do
     div id: 'batch_actions_selector' do
       ul do
-        li a 'Запретить', href:'#', class: "batch_action", :'data-action' => "Запретить" if %w(непросмотренные опубликованные).include? params[:scope]
-        li a 'Разрешить', href:'#', class: "batch_action permit", :'data-action' => "Разрешить" if %w(непросмотренные неопубликованные).include? params[:scope]
+
+        li a 'Запретить', href:'#', class: "batch_action", :'data-action' => "Запретить" unless params[:scope] == 'неопубликованные'
+        li a 'Разрешить', href:'#', class: "batch_action permit", :'data-action' => "Разрешить" unless params[:scope] == 'опубликованные'
       end
     end
   end
-
-  filter :created_at, label: 'Появилась в...'
 
   index title: 'Фотографии', as: :grid do |photo|
     resource_selection_cell photo
