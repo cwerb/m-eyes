@@ -47,6 +47,13 @@
   color: #525252;
 }
 
+#conteiner_bloc_frame .bloc_right ul {
+  list-style: none;
+  padding: 0;
+  li {
+    padding: 3px 0;
+  }
+}
 #conteiner_bloc_frame .bloc_right .bloc_right_buton {
   height:auto;
   margin-left:43px;
