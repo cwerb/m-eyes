@@ -1,9 +1,8 @@
 # -*- encoding : utf-8 -*-
 require 'daemons'
-Daemons.run_proc('instagram.rb', multiple: false, ontop: true) do
 
 require 'active_record'
-ActiveRecord::Base.establish_connection YAML::load(File.open '../config/database.yml')[ENV["RAILS_ENV"] || 'development']
+ActiveRecord::Base.establish_connection YAML::load(File.open 'config/database.yml')[ENV["RAILS_ENV"] || 'development']
 
 hashtags = ['MYsatinblack', 'MYcolortattoo']
 
@@ -37,7 +36,7 @@ parse = lambda { |tag, start_id = 123456789012345|
     )
   } if answer.data.count > 0
 }
-
+Daemons.run_proc('instagram.rb', multiple: false, ontop: true) do
 loop {
   hashtags.each {|tag| parse.call tag }
   sleep 30
