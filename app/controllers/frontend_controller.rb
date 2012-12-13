@@ -22,6 +22,7 @@ class FrontendController < ApplicationController
     user = User.find_by_username('jabher') || User.new(username: env['omniauth.auth'].nickname)
     user.email = session[:email]
     user.save
+    raise user.to_s
     redirect_to '/'
   end
 end
