@@ -1,4 +1,4 @@
-// JavaScript Document
+// JavaScript Document 1
 var carousel;
 
 $(document).ready(function() {
