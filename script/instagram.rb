@@ -11,7 +11,7 @@ class Photo < ActiveRecord::Base
   validates :author, presence: true
   validates :hashtag, presence: true
   def self.last_instagram_id(hashtag)
-    (Photo.count > 0 ? Photo.where(hashtag: hashtag).last.sid :  Instagram.tag_recent_media(hashtag).data.blank? ? 1.day.ago : Instagram.tag_recent_media(hashtag).data.first.created_time).to_i * 1000
+    (Photo.where(hashtag: hashtag).count > 0 ? Photo.where(hashtag: hashtag).last.sid :  Instagram.tag_recent_media(hashtag).data.blank? ? 1.day.ago : Instagram.tag_recent_media(hashtag).data.first.created_time).to_i * 1000
   end
 end
 
