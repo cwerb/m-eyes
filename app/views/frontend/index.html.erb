@@ -2,7 +2,19 @@
 
   <div class="bloc_centr">
     <div class='s-video'>
-      <iframe width="641" height="370" src="http://www.youtube.com/embed/NPFSkmtvyeQ?list=PL8D4356D928A64385&amp;hl=ru_RU" frameborder="0" allowfullscreen></iframe>
+      <div id="ytapiplayer">
+        You need Flash player 8+ and JavaScript enabled to view this video.
+      </div>
+
+      <script type="text/javascript">
+
+          var params = { allowScriptAccess: "always" };
+          var atts = { id: "myytplayer" };
+          swfobject.embedSWF("http://www.youtube.com/v/huBCJewHfQ0?enablejsapi=1&playerapiid=myytapiplayer",
+                  "ytapiplayer", "633", "370", "8", null, null, params, atts);
+
+      </script>
+
       <div class="video-footer">
         <p class="title">Заголовок видео</p>
         <p class="dscr">описание канала</p>
@@ -48,7 +60,7 @@
   </div>
 
   <div class="bloc_right">
-    <h3 class="koncurs">Конкурс!</h3>
+    <h3 class="koncurs">Конкурс!</h1>
 
       <div class="bloc_right_buton">
         <div class="buton_foto_uchasnic"><span>Фото участниц</span></div>
@@ -58,6 +70,8 @@
 
       <!--Галерея учасниц-->
       <div class="foto_uchasnic">
+
+
       </div>
 
 
@@ -69,16 +83,9 @@
         1.Фотография должна быть пользовательской. Вслучае использования чужих фото, вы выбываете из конкурса.<br /><p></p>
         2.Первый победитель определяется экспертами Мейбиллин НьюЙорк. Еще 10 победителей определит первый победитель.<br /><p></p>
         3.Конкурс длится до ? числа (необходимо понять когда заканчивается конкурс и когда/где выдаются призы.)<br /><p></p>
-        4.Итоги конкурса будут оглашены на этой же странице и в нашей группе Facebook</li>
+        4.Итоги конкурса будут оглашены на этой же странице и в нашей группе Facebook<br /><p></p>
         5. Чтобы мы могли связаться с тобой, оставь нам свой никнейм в инстаграме и E-mail
-        <form action="" class="send-nick">
-          <input placeholder='@instagram' type="" name="login" />
-          <input placeholder='E-mail' type="" name="email" />
-          <button><b></b></button>
-          <span class="error error-login"></span>
-          <span class="error error-email"></span>
-          <p style='display:none'>Вам отправлено письмо с подтверждением вашего емайла</p>
-        </form>
+        <%= render partial: 'form' -%>
       </div>
 
       <div class="instrukcia s-tab ">
@@ -89,16 +96,9 @@
         3.Приблизь фотографию так, чтобы глаза получились максимально близко. Показываем картинку, где фотография увеличена так, что только глаза вписываются в рамки;<br /><p></p>
         4.Выбери любой фильтр, какой нравится;<br /><p></p>
         5.Подпиши фотографию хештегом <span class="blu">#MYsatinblack</span> или <span class="blu">#MYcolortattoo</span>
-
+        <br /><p></p>
         6. Чтобы мы могли связаться с тобой, оставь нам свой никнейм в инстаграме и E-mail
-        <form action="" class="send-nick">
-          <input placeholder='@instagram' type="" name="login" />
-          <input placeholder='E-mail' type="" name="email" />
-          <button><b></b></button>
-          <span class="error error-login"></span>
-          <span class="error error-email"></span>
-          <p style='display:none'>Вам отправлено письмо с подтверждением вашего емайла</p>
-        </form>
+        <%= render partial: 'form' -%>
       </div>
 
   </div>

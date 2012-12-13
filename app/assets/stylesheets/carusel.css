@@ -1,0 +1,57 @@
+#conteiner_bloc_frame .bloc_centr .liquid .previous {
+	display:block;
+	height:126px;
+	width:34px;
+	background-image:url('prev.png');
+	background-repeat:no-repeat;
+	background-position:center;
+	float:left;
+	margin:0;
+	padding:0;
+}
+#conteiner_bloc_frame .bloc_centr .liquid .next {
+	display:block;
+	height:126px;
+	width:64px;
+	background-image:url('next.png');
+	background-repeat:no-repeat;
+	background-position:center;
+	float:right;
+	margin:0;
+	padding:0;
+}
+#conteiner_bloc_frame .bloc_centr .liquid ul li {
+	width: 180px;
+	margin:0 !important;
+	text-align: center;
+}
+#conteiner_bloc_frame .bloc_centr .liquid ul li a img {
+	
+}
+
+
+
+#conteiner_bloc_frame .bloc_centr .liquid .wrapper {
+	width:500px;
+}
+
+#liquid .title {
+	display: block;
+	font-size: 10px;
+	color: #929292;
+	text-transform: uppercase;
+	display: table;
+	text-align: center;
+	vertical-align: middle;
+	height: 50px;
+	width: 100%;
+	margin-top: 24px;
+}
+#liquid .title span {
+	display: table-cell;
+	vertical-align: middle;
+	text-align: center;
+}
+#liquid li {
+	cursor: pointer;
+}

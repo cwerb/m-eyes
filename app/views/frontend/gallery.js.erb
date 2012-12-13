@@ -1,19 +1,11 @@
 var k = 0;
 var interval;
-
-var html = '';
-for (var i in list) {
-    html = html + ' ' +
-            '<img class="imgitem" src="' + list[i] + '" style="opacity: 0; filter: alpha(opacity=50);" width="80" height="80" />';
-}
-html = html + ' <span class="line"></span>';
-
-$('.foto_uchasnic .photos').html(<%= escape_javascript render patrial: 'photos', object: @photos -%>);
+$('.foto_uchasnic').html("<%= escape_javascript render partial: 'photos', object: @photos -%>");
 
 if (typeof fn_callback == 'function') fn_callback();
-
+var length = $('.foto_uchasnic .photos .imgitem').length
 interval = setInterval(function () {
-    if (k < list.length) {
+    if (k < length) {
         //$('.foto_uchasnic .photos img').eq( parseInt(list[k].split('.')[0].split('/g')[1]) - 1 ).animate({ opacity: '1' }, 150);
         $('.foto_uchasnic .photos .imgitem').eq(k).animate({ opacity:'1' }, 100);
         $('.foto_uchasnic .photos .imgitem').eq(k + 1).animate({ opacity:'1' }, 100);

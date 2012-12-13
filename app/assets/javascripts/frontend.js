@@ -1,4 +1,5 @@
 // JavaScript Document
+var carousel;
 
 $(document).ready(function() {
 
@@ -65,17 +66,9 @@ $(document).ready(function() {
 
 
 
+    window.page_number = 1;
+    $.ajax({url: '/gallery/'+window.page_number+'.js', dataType: 'script'});
 
-    $(document).ready(function() {$.ajax({url: '/gallery/1.js', dataType: 'script'})});
-
-    $('.foto_uchasnic .links a').click(function(){
-
-        //$('.foto_uchasnic .photos').stop().animate({opacity: 0},250);
-
-        $('.foto_uchasnic').trigger('load');
-
-        return false;
-    });
 
     $('.foto_uchasnic .photos').data('event-list',0);
     $('.foto_uchasnic .photos img').live('click', function(){
@@ -141,7 +134,11 @@ $(document).ready(function() {
         $('#liquid').jcarousel({
             visible : 3,
             scroll : 1,
-            wrap: 'circular'
+            wrap: 'circular',
+            initCallback : function(c)
+            {
+                carousel = c;
+            }
         });
 
         $('#liquid').append('<div class="hovered-overlay"></div>');
@@ -196,14 +193,94 @@ $(document).ready(function() {
             return false;
         }
 
-        if ( F.find('input[name=email]')[0].value == '' )
-        {
-            F.find('.error-login').html('неверно введены данные');
-            return false;
-        }
+        /*if ( F.find('input[name=email]')[0].value == '' )
+         {
+         F.find('.error-login').html('неверно введены данные');
+         return false;
+         }*/
 
         $('.s-tab  .send-nick *').hide();
         $('.s-tab  .send-nick p').show();
         return false;
     });
 });
+
+
+var time_video = 0;
+var time_video_timer_id = 0;
+var carousel_pos= -1;
+function change_pos(pos)
+{
+    if ( carousel_pos != pos )
+    {
+        $('#liquid .hovered-overlay').stop().animate({opacity: 0},250);
+        carousel.scroll(pos);
+        setTimeout(function()
+        {
+            $('#liquid .hovered-overlay').stop().animate({opacity: 1},250);
+            $('.jcarousel-list li:eq('+(pos-1)+')').trigger('mouseenter');
+            carousel_pos = pos;
+        },500);
+    }
+}
+function start_time_tick()
+{
+    time_video++;
+
+    if ( time_video <= 90 )
+    {
+        change_pos(1);
+    }
+    else
+    {
+        if ( time_video <= 110 )
+        {
+            change_pos(2);
+        }
+        else
+        {
+            if ( time_video <= 135 )
+            {
+                change_pos(3);
+            }
+            else
+            {
+                if ( time_video <= 240 )
+                {
+                    change_pos(4);
+                }
+                else
+                {
+                    change_pos(5);
+                }
+            }
+        }
+    }
+}
+
+var ytplayer;
+function onYouTubePlayerReady()
+{
+    ytplayer = document.getElementById("myytplayer");
+    ytplayer.addEventListener("onStateChange", "onytplayerStateChange");
+}
+
+function onytplayerStateChange(newState) {
+    if ( newState == 1 )
+    {
+        time_video = Math.round(ytplayer.getCurrentTime());
+        time_video_timer_id = setInterval(start_time_tick,1000);
+    }
+
+    if ( newState == 2 || newState == 3 )
+    {
+        time_video = Math.round(ytplayer.getCurrentTime());
+        clearInterval(time_video_timer_id);
+    }
+
+    if ( newState == 0 )
+    {
+        time_video = 0;
+        clearInterval(time_video_timer_id);
+    }
+}

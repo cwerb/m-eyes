@@ -1,7 +1,14 @@
-<%- counter = 1 -%>
-<%- photos.each do |photo| -%>
-    <%= '<span class="line">' if counter == 1 -%>
-    <img class="imgitem" src="<%= photo.link -%>" style="opacity: 0; filter: alpha(opacity=50);" width="80" height="80" />
-    <%= '</span>' if counter == 3 -%>
-    <%- counter == 3 ? counter = 1 : counter += 1 -%>
-<%- end -%>
+<div class="photos">
+  <%- counter = 1 -%>
+  <%- photos.each do |photo| -%>
+      <%= '<span class="line">' if counter == 1 -%>
+      <img class="imgitem" src="<%= photo.link -%>" style="opacity: 0; filter: alpha(opacity=50);" width="80" height="80" />
+      <%= '</span>' if counter == 3 -%>
+      <%- counter == 3 ? counter = 1 : counter += 1 -%>
+  <%- end -%>
+</div>
+<div class="links">
+  <%= link_to 'позднее', {action: 'gallery', page: (params[:page].to_i - 1).to_s}, remote: true, class: 'prev' -%>
+  <%= link_to 'ранее',   {action: 'gallery', page: (params[:page].to_i + 1).to_s}, remote: true, class: 'next' -%>
+  <span class="line"></span>
+</div>

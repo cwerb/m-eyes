@@ -3,7 +3,9 @@ MEyes::Application.routes.draw do
 
   match 'register' => "frontend#create"
 
-  match 'gallery' => 'frontend#gallery'
+  match '/auth/instagram/callback' => 'frontend#callback'
+
+  match 'gallery/:page' => 'frontend#gallery'
 
   ActiveAdmin.routes(self)
 

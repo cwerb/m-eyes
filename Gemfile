@@ -10,7 +10,10 @@ gem 'instagram'
 gem 'activeadmin'
 gem 'russian'
 gem 'devise-russian'
+gem 'video_info'
 
+gem 'omniauth'
+gem 'omniauth-instagram'
 
 gem 'email_validator'
 
