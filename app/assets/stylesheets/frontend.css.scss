@@ -51,7 +51,7 @@
   list-style: none;
   padding: 0;
   li {
-    padding: 3px 0;
+    padding: 6px 0;
   }
 }
 #conteiner_bloc_frame .bloc_right .bloc_right_buton {
@@ -172,6 +172,7 @@
 
 
 .foto_uchasnic .photos {
+  min-height: 347px;
   text-align: justify;
   font-size: 0;
 }
