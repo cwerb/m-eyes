@@ -370,10 +370,10 @@ a.closePhoto {
   background: -o-linear-gradient(top, #fafafa, #dddddd);
   background: -ms-linear-gradient(top, #fafafa, #dddddd);
   background: linear-gradient(top, #fafafa, #dddddd);
-  filter: progid:DXImageTransform.Microsoft.gradient(enabled='true',startColorstr=#fafafa,endColorstr=#dddddd,GradientType=0); zoom: 1;
-
-padding-left: 25px;
-  }
+  zoom: 1;
+  padding-left: 25px;
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled='true',startColorstr=#fafafa,endColorstr=#dddddd,GradientType=0);
+}
 .s-tab  .send-nick button b {
   position: absolute;
   left: 0;
