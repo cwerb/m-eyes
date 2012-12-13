@@ -88,12 +88,10 @@ $(document).ready(function() {
             }
             else
             {
-                $('.foto_uchasnic').trigger('load', [function()
-                {
-                    $('.foto_uchasnic .photos').data('event-list',0)
-                    $('.foto_uchasnic .photos .imgitem:first').trigger('click');
-                    $('.bigImageContainer').attr('style', style);
-                }]);
+                $('.foto_uchasnic > .links > .next').click();
+                $(document).one('ajax:complete', function(){
+                    $('.foto_uchasnic > .photos > img').first().click();
+                });
             }
 
             return false;
