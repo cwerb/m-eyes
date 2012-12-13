@@ -19,10 +19,9 @@ class FrontendController < ApplicationController
   end
 
   def callback
-    user = (User.find_by_username(env['omniauth.auth'].nickname) || User.new(username: env['omniauth.auth'].nickname))
+    user = (User.find_by_username(env['omniauth.auth'].info.nickname) || User.new(username: env['omniauth.auth'].info.nickname))
     user.email = session[:email]
     user.save
-    raise env['omniauth.auth'].to_s
     redirect_to '/'
   end
 end
