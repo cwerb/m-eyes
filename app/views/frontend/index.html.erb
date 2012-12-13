@@ -17,7 +17,7 @@
 
       <div class="video-footer">
         <p class="title"><%= link_to @videoinfo.title, 'http://www.youtube.com/watch?v=KoFYm5iX0ZY' -%></p>
-        <p class="dscr"><%= @videoinfo.description -%></p>
+        <p class="dscr"><%= time_left @videoinfo.date -%></p>
         <p class="v-cnt"><%= @videoinfo.view_count -%> <small>просмотров</small></p>
       </div>
     </div>

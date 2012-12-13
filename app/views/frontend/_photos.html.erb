@@ -4,7 +4,7 @@
   <%- end -%>
 </div>
 <div class="links">
-  <%= link_to 'позднее', {action: 'gallery', page: (@page - 1).to_s}, remote: true, class: 'prev' -%>
-  <%= link_to 'ранее',   {action: 'gallery', page: (@page + 1).to_s}, remote: true, class: 'next' -%>
+  <%= link_to 'позднее', {action: 'gallery', page: (@page - 1).to_s}, remote: true, class: 'prev' if @page > 1 -%>
+  <%= link_to 'ранее',   {action: 'gallery', page: (@page + 1).to_s}, remote: true, class: 'next' if photos.count < 18 -%>
   <span class="line"></span>
 </div>
