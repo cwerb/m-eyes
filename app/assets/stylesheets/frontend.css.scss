@@ -14,16 +14,16 @@
 
 #conteiner_bloc_frame .bloc_centr {
   background-color: #E6E6E6;
-  box-shadow: 1px 6px 9px rgba(0, 0, 0, 0.3);
+  box-shadow: 1px 0 9px rgba(0, 0, 0, 0.3);
   float: left;
   position:absolute;
-  height: 955px;
-
+  height: 727px;
+  width : 653px;
 }
 
 
 #conteiner_bloc_frame .bloc_centr .tovar {
-  background-image:url("../img/tovaru.png");
+  background-image:url("tovaru.png");
   background-repeat:no-repeat;
   height: 600px;
 }
@@ -33,7 +33,7 @@
   background-color: #E0E0E0;
   float: right;
   width: 34%;
-  height: 955px;
+  height: 727px;
 
 }
 
@@ -86,14 +86,14 @@
 }
 
 #conteiner_bloc_frame .bloc_right .bloc_right_buton .buton_instrukcia {
-  background-image:url("../img/buton_instrukcia.png");
+  background-image:url("buton_instrukcia.png");
   display: inline-block;
   width: 91px;
 
 }
 
 #conteiner_bloc_frame .bloc_right .bloc_right_buton .buton_foto_uchasnic.active {
-  background-image:url("../img/buton_foto_uchasnic.png");
+  background-image:url("buton_foto_uchasnic.png");
   background-position:bottom;
   color:#FFF;
   width: 101px;
@@ -103,7 +103,7 @@
 }
 
 #conteiner_bloc_frame .bloc_right .bloc_right_buton .buton_pravila.active {
-  background-image:url("../img/buton_pravila.png");
+  background-image:url("buton_pravila.png");
   background-position:bottom;
   color:#FFF;
   display: inline-block;
@@ -113,7 +113,7 @@
 }
 
 #conteiner_bloc_frame .bloc_right .bloc_right_buton .buton_instrukcia.active {
-  background-image:url("../img/buton_instrukcia.png");
+  background-image:url("buton_instrukcia.png");
   background-position:bottom;
   color:#FFF;
   display: inline-block;
@@ -124,7 +124,7 @@
 #conteiner_bloc_frame .bloc_right .foto_uchasnic {
 
   margin: 19px 0 0 45px;
-  width: 263px;
+  width: 274px;
 
 }
 
@@ -173,6 +173,7 @@
   zoom:1;
   display: inline-block;
   margin-bottom: 11px;
+  margin-right: 11px;
 }
 .foto_uchasnic  .links .line,
 .foto_uchasnic .photos .line {
@@ -190,7 +191,7 @@
   display: inline;
   zoom:1;
   display: inline-block;
-  background-image: url('/img/list_photos_ico_prevnext.png');
+  background-image: url('list_photos_ico_prevnext.png');
   background-repeat: no-repeat;
   text-decoration: none;
   font-size: 12px;
@@ -203,6 +204,7 @@
 .foto_uchasnic  .links .next {
   background-position: right -44px;
   padding-right: 14px;
+  margin-right: 11px;
 }
 
 #conteiner_bloc_frame .bloc_centr .liquid .next,
@@ -215,7 +217,7 @@
   position: relative;
   margin-top: 7px;
   left: 9px;
-  width: 638px;
+  width: 632px;
   border-radius: 4px;
   border: 1px solid #ddd;
   border-top: none;
@@ -245,7 +247,7 @@
   padding: 9px 9px 0 13px;
   height: 22px;
   overflow: hidden;
-  background: url(/img/topLine.jpg) 0 0 repeat-x #000;
+  background: url(topLine.jpg) 0 0 repeat-x #000;
 }
 .topLine a {
   font-size: 12px;
@@ -256,7 +258,7 @@
 }
 a.name {
   float: left;
-  background: url(/img/nickName.png) 0 0 no-repeat;
+  background: url(nickName.png) 0 0 no-repeat;
   padding: 0 0 0 20px;
 }
 a.closePhoto {
@@ -355,7 +357,7 @@ a.closePhoto {
 .s-tab  .send-nick button {
   border: 1px solid #b9b9b9;
   border-radius: 1px;
-  width: 42px;
+  width: 115px;
   height: 30px;
   cursor: pointer;
 
@@ -369,6 +371,8 @@ a.closePhoto {
   background: -ms-linear-gradient(top, #fafafa, #dddddd);
   background: linear-gradient(top, #fafafa, #dddddd);
   filter: progid:DXImageTransform.Microsoft.gradient(enabled='true',startColorstr=#fafafa,endColorstr=#dddddd,GradientType=0); zoom: 1;
+
+padding-left: 25px;
   }
 .s-tab  .send-nick button b {
   position: absolute;
@@ -376,7 +380,7 @@ a.closePhoto {
   top: 0;
   width: 100%;
   height: 100%;
-  background: url('/img/form_link_button.png') center no-repeat;
+  background: url('form_link_button.png') 7px center no-repeat;
 }
 .s-tab  .send-nick p {
   font-weight: bold;
@@ -394,4 +398,8 @@ a.closePhoto {
 .s-tab  .send-nick .error-email {
   left: 50%;
   margin-left: -21px;
+}
+
+#myytplayer {
+  margin-left: 9px;
 }

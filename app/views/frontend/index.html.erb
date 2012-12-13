@@ -16,9 +16,9 @@
       </script>
 
       <div class="video-footer">
-        <p class="title">Заголовок видео</p>
-        <p class="dscr">описание канала</p>
-        <p class="v-cnt"><%= VideoInfo.get('http://www.youtube.com/watch?v=KoFYm5iX0ZY').view_count -%> <small>просмотров</small></p>
+        <p class="title"><%= link_to @videoinfo.title, 'http://www.youtube.com/watch?v=KoFYm5iX0ZY' -%></p>
+        <p class="dscr"><%= @videoinfo.description -%></p>
+        <p class="v-cnt"><%= @videoinfo.view_count -%> <small>просмотров</small></p>
       </div>
     </div>
 
