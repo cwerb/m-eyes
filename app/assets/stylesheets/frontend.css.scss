@@ -70,7 +70,7 @@
 }
 
 #conteiner_bloc_frame .bloc_right .bloc_right_buton .buton_foto_uchasnic {
-  background-image:url("../img/buton_foto_uchasnic.png");
+  background-image:url("buton_foto_uchasnic.png");
   width: 101px;
   display: inline-block;
   float: left;
@@ -78,7 +78,7 @@
 }
 
 #conteiner_bloc_frame .bloc_right .bloc_right_buton .buton_pravila {
-  background-image:url("../img/buton_pravila.png");
+  background-image:url("buton_pravila.png");
   display: inline-block;
   float: left;
   width: 68px;
@@ -167,6 +167,7 @@
 .foto_uchasnic .photos {
   text-align: justify;
   font-size: 0;
+  height: 546px;
 }
 .foto_uchasnic .photos img {
   display: inline;
