@@ -14,7 +14,6 @@ class FrontendController < ApplicationController
   end
 
   def create
-    puts params
     session[:email] = params[:email]
     redirect_to '/auth/instagram'
   end
