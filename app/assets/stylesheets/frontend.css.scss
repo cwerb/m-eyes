@@ -320,27 +320,38 @@ a.closePhoto {
 }
 
 #liquid .hovered-overlay {
-  position: absolute;
-  width: 180px;
-  height: 100%;
-  padding: 5px 0;
-  background: #fff;
-  box-shadow: 0 3px 10px #aaa;
-  left: 0;
-  top: -5px;
-  z-index: 2;
-  display: none;
-  text-align: center;
-  margin-left: -1px;
-  cursor: pointer;
+	position: absolute;
+	width: 180px;
+	height: 100%;
+	padding: 5px 0;
+	box-shadow: 0 3px 10px #aaa;
+	left: 0;
+	top: -5px;
+	z-index: 2;
+	display: none;
+	text-align: center;
+	margin-left: -1px;
+	cursor: pointer;
+	background: url('carousel_overlay_mask.png') transparent;
 }
 #liquid .hovered-overlay .mask {
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 100;
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 100;
+	background: url('1px.gif');
+	cursor: pointer;
+}
+#liquid .overlay-carousel-events {
+	position: absolute;
+	z-index: 999;
+	width: 100%;
+	height: 100%;
+	left: 0;
+	top: 0;
+	display: none;
 }
 
 .s-tab .send-nick {
