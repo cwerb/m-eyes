@@ -1,6 +1,6 @@
 ActiveAdmin.register Author do
   menu false
-  action :show
+  actions :show
 
   show do |author|
     author.images.each do |image|
