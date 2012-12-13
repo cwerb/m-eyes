@@ -1,4 +1,16 @@
 MEyes::Application.configure do
+
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+      :address              => "smtp.mail.ru",
+      :port                 => 587,
+      :domain               => 'mail.ru',
+      :user_name            => 'crbrus',
+      :password             => 'gfhjkm',
+      :authentication       => 'plain',
+      :enable_starttls_auto => true  }
+
+
   # Settings specified here will take precedence over those in config/application.rb
 
   # In the development environment your application's code is reloaded on
