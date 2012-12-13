@@ -7,7 +7,7 @@ class FrontendController < ApplicationController
     @page = params[:page].to_i
     @page = 1 if @page > pages_count
     @page = pages_count if @page < 1
-    @photos = Photo.find_all_by_is_legal(true).page(@page).per(18)
+    @photos = Photo.where(is_legal: true).page(@page).per(18)
     respond_to do |format|
       format.js {render 'gallery'}
     end
