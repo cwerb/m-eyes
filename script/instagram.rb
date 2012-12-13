@@ -19,7 +19,7 @@ class Photo < ActiveRecord::Base
 end
 
 class Author < ActiveRecord::Base
-  attr_accessible :is_banned, :nickname, :photos
+  attr_accessible :is_banned, :nickname, :sid, :photos
   has_many :photos
 end
 
@@ -38,7 +38,7 @@ parse = lambda { |tag, start_id = 123456789012345|
         link: status.images.low_resolution.url,
         sid: status.created_time.to_i,
         hashtag: tag,
-        author: Author.find_by_nickname(status.user.username) || Author.create(nickname: status.user.username, is_banned: false)
+        author: Author.find_by_sid(status.user.id) || Author.create(nickname: status.user.username, sid: status.user.id, is_banned: false)
     )
     photo.is_author_banned = photo.author.is_banned
     photo.save

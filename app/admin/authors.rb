@@ -34,7 +34,7 @@ ActiveAdmin.register Author do
       end
       column do
         panel 'Информация о пользователе', class: 'author-info' do
-          img src: (user = Instagram::Client.new.user Instagram::Client.new.user_search(author.nickname).map{|s| s.id if s.username == author.nickname}.join).profile_picture
+          img src: (user = Instagram::Client.new.user author.sid).profile_picture
           span '#'+user.username
           span user.full_name
           span %(ID: #{user.id})
