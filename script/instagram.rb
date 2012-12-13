@@ -3,7 +3,7 @@ require 'daemons'
 Daemons.run_proc('instagram.rb', multiple: false, ontop: true) do
 
 require 'active_record'
-ActiveRecord::Base.establish_connection YAML::load(File.open 'config/database.yml')[ENV["RAILS_ENV"] || 'development']
+ActiveRecord::Base.establish_connection YAML::load(File.open '../config/database.yml')[ENV["RAILS_ENV"] || 'development']
 
 hashtags = ['MYsatinblack', 'MYcolortattoo']
 
