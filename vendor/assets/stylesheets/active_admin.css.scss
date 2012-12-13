@@ -28,20 +28,96 @@
 // .admin_namespace    applies to the admin namespace (eg: /admin)
 // .other_namespace    applies to a custom namespace named other (eg: /other)
 
-body.active_admin #wrapper {
-  width: 1020px;
-  margin: 0 auto;
-}
+body.active_admin {
+  #wrapper {
+    width: 1020px;
+    margin: 0 auto;
+  }
 
-.photo {
-  .resource_selection_cell {
-    input[type="checkbox"] {
-      position: absolute;
-      width: 200px;
-      height: 200px;
-      &:selected {
-        background: black;
+  .dropdown_menu .dropdown_menu_list_wrapper .dropdown_menu_list {
+    position: relative;
+    z-index: 5;
+  }
+
+  .photo {
+    .resource_selection_cell {
+      input[type="checkbox"] {
+        position: absolute;
+        width: 200px;
+        height: 200px;
+        background-color: blue;
+        opacity: 0;
+        -moz-appearance: none;
+        -webkit-appearance: none;
+        -o-appearance: none;
+        z-index: 1;
+        &:checked {
+          opacity: 0.5;
+        }
       }
     }
   }
+
+  #operatsii_sidebar_section {
+    #batch_actions_selector {
+      ul {
+        list-style: none;
+        margin: 1em auto;
+        li {
+         display: inline-block;
+          width: 49%;
+          a {
+            -webkit-border-radius: 200px;
+            -moz-border-radius: 200px;
+            border-radius: 200px;
+            display: inline-block;
+            font-weight: bold;
+            font-size: 1.0em;
+            font-family: Helvetica, Arial, sans-serif;
+            line-height: 12px;
+            margin-right: 3px;
+            padding: 7px 16px 6px;
+            text-decoration: none;
+            -webkit-font-smoothing: antialiased;
+            background: #838A90;
+            background: -webkit-gradient(linear, left top, left bottom, from(#838A90), to(#414549));
+            background: -moz-linear-gradient(-90deg, #838A90, #414549);
+            text-shadow: black 0 1px 0;
+            -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1), 0 1px 0 0px rgba(255, 255, 255, 0.2) inset;
+            box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1), 0 1px 0 0px rgba(255, 255, 255, 0.2) inset;
+            border: solid 1px #484E53;
+            border-color: #484E53;
+            border-top-color: #616A71;
+            border-right-color: #484E53;
+            border-bottom-color: #363B3F;
+            border-left-color: #484E53;
+            color: #EFEFEF;
+            cursor: pointer;
+            &.permit {
+              background: white;
+              background: -webkit-gradient(linear, left top, left bottom, from(white), to(#E7E7E7));
+              background: -moz-linear-gradient(-90deg, white, #E7E7E7);
+              filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='white', endColorstr='#e7e7e7');
+              -ms-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='white', endColorstr='#e7e7e7');
+              -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1), 0 1px 0 0 rgba(255, 255, 255, 0.8) inset;
+              box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1), 0 1px 0 0 rgba(255, 255, 255, 0.8) inset;
+              border: solid 1px #C7C7C7;
+              border-color: #C7C7C7;
+              border-top-color: lightGrey;
+              border-right-color: #C7C7C7;
+              border-bottom-color: #C2C2C2;
+              border-left-color: #C7C7C7;
+              text-shadow: white 0 1px 0;
+              color: #5E6469;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .blank_slate_container {
+    display: none;
+  }
+  
 }
