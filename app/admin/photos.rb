@@ -35,6 +35,6 @@ ActiveAdmin.register Photo do
   index title: 'Фотографии', as: :grid do |photo|
     resource_selection_cell photo
     img src: photo.link, width: "200px"
-    p %(Автор: @#{photo.author})
+    a %(Автор: @#{photo.author.name}), href:
   end
 end
