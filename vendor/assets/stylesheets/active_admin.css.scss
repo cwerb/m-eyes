@@ -51,6 +51,7 @@ body.active_admin {
         -webkit-appearance: none;
         -o-appearance: none;
         z-index: 1;
+        cursor: pointer;
         &:checked {
           opacity: 0.5;
         }

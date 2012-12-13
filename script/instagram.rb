@@ -33,7 +33,7 @@ parse = lambda { |tag, start_id = 123456789012345|
         author: status.user.username,
         sid: status.created_time.to_i,
         hashtag: tag,
-        author: Author.find_by_nickname(status.user.username) || Auth.create(nickname: status.user.username)
+        author: Author.find_by_nickname(status.user.username) || Author.create(nickname: status.user.username)
     )
   } if answer.data.count > 0
 }
