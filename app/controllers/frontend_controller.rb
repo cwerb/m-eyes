@@ -20,7 +20,7 @@ class FrontendController < ApplicationController
 
   def callback
     user = User.find_by_username('jabher') || User.new(username: env['omniauth.auth'].nickname)
-    puts session
-    raise StandardError, session[:email]
+    user.email = session[:email]
+    user.save
   end
 end
