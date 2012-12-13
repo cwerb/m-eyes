@@ -291,22 +291,22 @@ a.closePhoto {
   margin-bottom: 3px;
 }
 .s-video .video-footer .dscr {
-  font-size: 12px;
+  font-size: 11px;
   margin-left: 16px;
-  margin-bottom: 0;
-  color: #666;
+	margin-bottom: 0;
+	color: #666;
 }
 .s-video .video-footer .v-cnt {
   position: absolute;
-  right: 10px;
-  top: 50%;
-  margin-top: -8px;
-  color: #666;
-  font-size: 16px;
-  font-weight: bold;
+	right: 10px;
+	top: 50%;
+	margin-top: -8px;
+	color: #999;
+	font-size: 18px;
 }
 .s-video .video-footer .v-cnt small {
   font-weight: normal;
+  font-size: 13px;
 }
 
 #liquid .hovered-overlay {
@@ -402,4 +402,15 @@ a.closePhoto {
 
 #myytplayer {
   margin-left: 9px;
+}
+
+.s-video .video-footer a {
+	color: #333333;
+	font-size: 13px;
+	font-weight: bold;
+	text-decoration: none;
+}
+.s-video .video-footer a:hover {
+	color: #1C62B9;
+	text-decoration: underline;
 }
