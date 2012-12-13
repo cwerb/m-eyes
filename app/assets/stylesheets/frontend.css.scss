@@ -188,9 +188,7 @@
   text-align: justify;
 }
 .foto_uchasnic  .links a {
-  display: inline;
-  zoom:1;
-  display: inline-block;
+  position: absolute;
   background-image: url('list_photos_ico_prevnext.png');
   background-repeat: no-repeat;
   text-decoration: none;
@@ -200,11 +198,14 @@
 .foto_uchasnic  .links .prev {
   background-position: 0 6px;
   padding-left: 14px;
+  top: 0;
+	left: 0;
 }
 .foto_uchasnic  .links .next {
   background-position: right -44px;
   padding-right: 14px;
-  margin-right: 11px;
+  right: 14px;
+	top: 0;
 }
 
 #conteiner_bloc_frame .bloc_centr .liquid .next,
