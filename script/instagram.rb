@@ -1,4 +1,7 @@
 # -*- encoding : utf-8 -*-
+require 'daemons'
+Daemons.run_proc('instagram.rb') do
+
 require 'active_record'
 ActiveRecord::Base.establish_connection YAML::load(File.open 'config/database.yml')[ENV["RAILS_ENV"] || 'development']
 
@@ -39,3 +42,4 @@ loop {
   hashtags.each {|tag| parse.call tag }
   sleep 30
 }
+end
