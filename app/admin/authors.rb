@@ -42,9 +42,9 @@ ActiveAdmin.register Author do
           span %(фолловит #{user.counts.follows})
           span %(всего контента: #{user.counts.media})
         end
-        panel 'Банный день' do
-          a 'в баню',  href: %(/admin/authors/#{author.id}/ban/) unless author.is_banned
-          a 'из бани', href: %(/admin/authors/#{author.id}/deban/) if author.is_banned
+        panel 'Блокировка пользователя' do
+          a 'Заблокировать',  href: %(/admin/authors/#{author.id}/ban/) unless author.is_banned
+          a 'Разблокировать', href: %(/admin/authors/#{author.id}/unban/) if   author.is_banned
         end
       end
     end
