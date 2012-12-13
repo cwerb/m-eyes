@@ -3,7 +3,7 @@ class FrontendController < ApplicationController
   end
 
   def gallery
-    pages_count = Photo.where(is_legal: true).count/18
+    pages_count = Photo.where(is_legal: true).count / 18
     @page = params[:page].to_i
     @page = 1 if @page > pages_count
     @page = pages_count if @page < 1
@@ -20,7 +20,7 @@ class FrontendController < ApplicationController
   end
 
   def callback
-    user = User.find_by_nickname(env['omniauth.auth'].nickname)
+    user = User.find_by_username(env['omniauth.auth'].nickname)
     user |= User.new(username:env['omniauth.auth'].nickname)
     user.email = session[:email]
     user.save
