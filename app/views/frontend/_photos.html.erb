@@ -5,6 +5,6 @@
 </div>
 <div class="links">
   <%= link_to 'позднее', {action: 'gallery', page: (@page - 1).to_s}, remote: true, class: 'prev' if @page > 1 -%>
-  <%= link_to 'ранее',   {action: 'gallery', page: (@page + 1).to_s}, remote: true, class: 'next' unless photos.count < 18 -%>
+  <%= link_to 'ранее',   {action: 'gallery', page: (@page + 1).to_s}, remote: true, class: 'next' unless @page >= @pages_count -%>
   <span class="line"></span>
 </div>
