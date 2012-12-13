@@ -39,8 +39,8 @@ ActiveAdmin.register Author do
           span user.full_name
           span %(ID: #{user.id})
           span %(#{user.counts.followed_by} фолловеров)
-          span %(фолловит #{user.counts.follows})
-          span %(всего контента: #{user.counts.media})
+          span %(фолловит #{user.counts.follows} человек)
+          span %(всего фотографий пользователя: #{user.counts.media})
         end
         panel 'Блокировка пользователя' do
           a 'Заблокировать',  href: %(/admin/authors/#{author.id}/ban/) unless author.is_banned
