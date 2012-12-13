@@ -26,10 +26,10 @@ end
 
 parse = lambda { |tag, start_id = 123456789012345|
   answer = Instagram.tag_recent_media tag, max_tag_id: start_id, min_tag_id: Photo.last_instagram_id(tag)
-  parse.call(tag, answer.pagination.next_max_tag_id.to_i) if answer.pagination.next_max_tag_id.to_i > Photo.last_instagram_id(tag) and answer.data.count > 0 and answer.data.last.created_time > @start_time
+  parse.call(tag, answer.pagination.next_max_tag_id.to_i) if answer.pagination.next_max_tag_id.to_i > Photo.last_instagram_id(tag) and answer.data.count > 0 and answer.data.last.created_time.to_i > @start_time
   answer.data.each { |status|
     Photo.create(
-        link: status.images.standard_resolution.url,
+        link: status.images.low_resolution.url,
         author: status.user.username,
         sid: status.created_time.to_i,
         hashtag: tag

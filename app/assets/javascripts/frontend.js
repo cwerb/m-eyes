@@ -88,10 +88,10 @@ $(document).ready(function() {
             }
             else
             {
-                $('.foto_uchasnic > .links > .next').click();
                 $(document).one('ajax:complete', function(){
                     $('.foto_uchasnic > .photos > img').first().click();
                 });
+                $('.foto_uchasnic > .links > .next').click();
             }
 
             return false;
