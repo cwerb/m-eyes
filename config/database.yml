@@ -49,7 +49,7 @@ test:
 production:
   adapter: postgresql
   encoding: unicode
-  database: m-eyes_production
+  database: m-eyes
   pool: 5
-  username: rails
-  password: rails
+  username: postgres
+  password:
