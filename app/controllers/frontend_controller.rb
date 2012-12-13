@@ -4,9 +4,9 @@ class FrontendController < ApplicationController
   end
 
   def gallery
-    pages_count = Photo.where(is_legal: true).count / 18
+    @pages_count = (Photo.where(is_legal: true).count.to_f / 18).ceil
     @page = params[:page].to_i
-    @page = pages_count if @page > pages_count
+    @page = @pages_count if @page > @pages_count
     @photos = Photo.where(is_legal: true).page(@page).per(18)
     respond_to do |format|
       format.js {render 'gallery'}
@@ -14,15 +14,14 @@ class FrontendController < ApplicationController
   end
 
   def create
-    puts params
     session[:email] = params[:email]
     redirect_to '/auth/instagram'
   end
 
   def callback
-    user = User.find_by_username('jabher') || User.new(username: env['omniauth.auth'].nickname)
+    user = (User.find_by_username(env['omniauth.auth'].info.nickname) || User.new(username: env['omniauth.auth'].info.nickname))
     user.email = session[:email]
     user.save
-    redirect_to root_path
+    redirect_to '/'
   end
 end

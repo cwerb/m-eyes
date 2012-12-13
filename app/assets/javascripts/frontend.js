@@ -66,8 +66,7 @@ $(document).ready(function() {
 
 
 
-    window.page_number = 1;
-    $.ajax({url: '/gallery/'+window.page_number+'.js', dataType: 'script'});
+    $.ajax({url: '/gallery/1.js', dataType: 'script'});
 
 
     $('.foto_uchasnic .photos').data('event-list',0);
@@ -89,12 +88,10 @@ $(document).ready(function() {
             }
             else
             {
-                $('.foto_uchasnic').trigger('load', [function()
-                {
-                    $('.foto_uchasnic .photos').data('event-list',0)
-                    $('.foto_uchasnic .photos .imgitem:first').trigger('click');
-                    $('.bigImageContainer').attr('style', style);
-                }]);
+                $(document).one('ajax:complete', function(){
+                    $('.foto_uchasnic > .photos > img').first().click();
+                });
+                $('.foto_uchasnic > .links > .next').click();
             }
 
             return false;
@@ -108,7 +105,7 @@ $(document).ready(function() {
         var left = $(this).offset().left-90;
         var top = $(this).offset().top-90;
 
-        $('.foto_uchasnic .photos').prepend('<div class="bigImageContainer"><div class="topLine"><a href="" class="name">@youlechka</a><a href="javascript:void(0)" class="closePhoto">закрыть</a></div><img src="' + $(this).attr('src') + '" height="100%" /></div>')
+        $('.foto_uchasnic .photos').prepend('<div class="bigImageContainer"><div class="topLine"><a href="http://instagram.com/'+$(this).attr('data-username')+'" class="name">@'+$(this).attr('data-username')+'</a><a href="javascript:void(0)" class="closePhoto">закрыть</a></div><img src="' + $(this).attr('src') + '" height="100%" /></div>')
 
         left = left - $p.offset().left-1;
         top = top - $p.offset().top-1;
