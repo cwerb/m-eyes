@@ -11,7 +11,7 @@ gem 'activeadmin'
 gem 'russian'
 gem 'devise-russian'
 gem 'video_info'
-gem 'daemons', require: false
+gem 'daemons', :platforms => :ruby, require: false
 gem 'omniauth'
 gem 'omniauth-instagram'
 
