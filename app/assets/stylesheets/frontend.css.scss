@@ -435,3 +435,43 @@ a.closePhoto {
 	color: #1C62B9;
 	text-decoration: underline;
 }
+
+
+.foto_uchasnic .photos .bigImageContainer {
+	height: 294px;
+}
+.foto_uchasnic .photos .bigImageContainer img {
+	width: 263px;
+	height: 263px;
+	margin: 0;
+}
+.foto_uchasnic .photos .bigImageContainer .topLine {
+	background: #000;
+	background: -moz-linear-gradient(top, #323232, #020202);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#323232), color-stop(100%,#020202));  
+	background: -webkit-linear-gradient(top, #323232, #020202);  
+	background: -o-linear-gradient(top, #323232, #020202);
+	background: -ms-linear-gradient(top, #323232, #020202);
+	background: linear-gradient(top, #323232, #020202);
+	filter: progid:DXImageTransform.Microsoft.gradient(enabled='true',startColorstr=#323232,endColorstr=#020202,GradientType=0); zoom: 1;    
+	padding-left: 9px;
+}
+.foto_uchasnic .photos .bigImageContainer .topLine a:hover {
+	text-decoration: none;
+}
+
+#conteiner_bloc_frame .bloc_right .bloc_right_buton span {
+	display: block;
+	top: 0;
+	height: 32px;
+	line-height: 32px;
+	text-align: center;
+	margin: 0;
+}
+
+.s-tab .send-nick input {
+	width: 137px;
+}
+.s-tab .send-nick button {
+	width: 115px;
+}
