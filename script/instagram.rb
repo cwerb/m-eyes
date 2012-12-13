@@ -36,7 +36,7 @@ parse = lambda { |tag, start_id = 123456789012345|
     )
   } if answer.data.count > 0
 }
-Daemons.run_proc('instagram.rb', multiple: false, ontop: true) do
+Daemons.run_proc('instagram.rb', multiple: false) do
 loop {
   hashtags.each {|tag| parse.call tag }
   sleep 30
