@@ -4,6 +4,6 @@ class User < ActiveRecord::Base
   validates :email, email: true
   validates :username, presence: true, uniqueness: true
 
-  after_save {|user| WelcomeMailer.welcome(user.email)}
+  after_save {|user| WelcomeMailer.welcome(user.email).deliver}
 
 end

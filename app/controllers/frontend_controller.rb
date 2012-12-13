@@ -20,7 +20,7 @@ class FrontendController < ApplicationController
   end
 
   def callback
-    user = User.find_by_username(env['omniauth.auth'].nickname) || User.new(username:env['omniauth.auth'].nickname)
+    user = User.find_by_username('jabher') || User.new(username: env['omniauth.auth'].nickname)
     user.email = session[:email]
     user.save
     redirect_to root_path
