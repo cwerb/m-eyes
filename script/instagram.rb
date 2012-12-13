@@ -7,7 +7,7 @@ ActiveRecord::Base.establish_connection YAML::load(File.open 'config/database.ym
 hashtags = ['MYsatinblack', 'MYcolortattoo']
 
 class Photo < ActiveRecord::Base
-  attr_accessible :author, :is_legal, :link, :sid, :hashtag
+  attr_accessible :author, :is_legal, :link, :sid, :hashtag, :is_author_banned
   validates :link, uniqueness: true
   validates :sid, uniqueness: true
   belongs_to :author
@@ -34,12 +34,15 @@ parse = lambda { |tag, start_id = 123456789012345|
   answer = Instagram.tag_recent_media tag, max_tag_id: start_id, min_tag_id: Photo.last_instagram_id(tag)
   parse.call(tag, answer.pagination.next_max_tag_id.to_i) if answer.pagination.next_max_tag_id.to_i > Photo.last_instagram_id(tag) and answer.data.count > 0 and answer.data.last.created_time.to_i > @start_time
   answer.data.each { |status|
+    author = Author.find_by_sid(status.user.id) || Author.create(nickname: status.user.username, sid: status.user.id, is_banned: false)
     Photo.create(
         link: status.images.low_resolution.url,
         author: status.user.username,
         sid: status.created_time.to_i,
         hashtag: tag,
-        author: Author.find_by_nickname(status.user.username) || Author.create(nickname: status.user.username)
+        author: author,
+        is_banned: false,
+        is_author_banned: author.is_banned
     )
   } if answer.data.count > 0
 }

@@ -3,6 +3,21 @@ ActiveAdmin.register Author do
   menu false
   actions :show
 
+  member_action :ban do
+    author = Author.find(params[:id])
+    author.is_banned = true
+    author.photos.each {|i| i.is_author_banned = true; i.save}
+    author.save
+    redirect_to action: :show
+  end
+  member_action :unban do
+    author = Author.find(params[:id])
+    author.is_banned = false
+    author.photos.each {|i| i.is_author_banned = true; i.save}
+    author.save
+    redirect_to action: :show
+  end
+
   show do |author|
     columns do
       column span: 3 do
@@ -18,11 +33,18 @@ ActiveAdmin.register Author do
         end
       end
       column do
-        panel 'Информация о пользователе' do
-
+        panel 'Информация о пользователе', class: 'author-info' do
+          img src: (user = Instagram::Client.new.user Instagram::Client.new.user_search(author.nickname).map{|s| s.id if s.username == author.nickname}.join).profile_picture
+          span '#'+user.username
+          span user.full_name
+          span %(ID: #{user.id})
+          span %(#{user.counts.followed_by} фолловеров)
+          span %(фолловит #{user.counts.follows})
+          span %(всего контента: #{user.counts.media})
         end
         panel 'Банный день' do
-
+          a 'в баню',  href: %(/admin/authors/#{author.id}/ban/) unless author.is_banned
+          a 'из бани', href: %(/admin/authors/#{author.id}/deban/) if author.is_banned
         end
       end
     end

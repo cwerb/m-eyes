@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121213153833) do
+ActiveRecord::Schema.define(:version => 20121213191837) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -57,11 +57,12 @@ ActiveRecord::Schema.define(:version => 20121213153833) do
     t.string   "link"
     t.string   "author"
     t.boolean  "is_legal"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
     t.string   "sid"
     t.string   "hashtag"
     t.integer  "author_id"
+    t.boolean  "is_author_banned"
   end
 
   create_table "users", :force => true do |t|
