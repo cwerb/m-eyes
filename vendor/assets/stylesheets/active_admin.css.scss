@@ -120,5 +120,15 @@ body.active_admin {
   .blank_slate_container {
     display: none;
   }
-  
+
+  .user-images {
+    .image-info-holder {
+      width: 200px;
+      margin: 15px;
+      display: inline-block;
+      span {
+        width: 200px;
+      }
+    }
+  }
 }

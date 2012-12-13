@@ -47,7 +47,7 @@ ActiveRecord::Schema.define(:version => 20121213153833) do
   add_index "admin_users", ["reset_password_token"], :name => "index_admin_users_on_reset_password_token", :unique => true
 
   create_table "authors", :force => true do |t|
-    t.integer  "nickname"
+    t.string   "nickname"
     t.boolean  "is_banned"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false

@@ -1,4 +1,4 @@
-ActiveAdmin.register_page "Dashboard", if: false do
+ActiveAdmin.register_page "Dashboard" do
 
   menu false
 
