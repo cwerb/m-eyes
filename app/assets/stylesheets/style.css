@@ -20,7 +20,7 @@
 
 
 #conteiner_bloc_frame .bloc_centr .tovar {
-    background-image:url("../img/tovaru.png");
+    background-image:url("tovaru.png");
     background-repeat:no-repeat;
     height: 600px;
 }
@@ -83,14 +83,14 @@
 }
 
 #conteiner_bloc_frame .bloc_right .bloc_right_buton .buton_instrukcia {
-    background-image:url("../img/buton_instrukcia.png");
+    background-image:url("buton_instrukcia.png");
     display: inline-block;
     width: 91px;
 
 }
 
 #conteiner_bloc_frame .bloc_right .bloc_right_buton .buton_foto_uchasnic.active {
-    background-image:url("../img/buton_foto_uchasnic.png");
+    background-image:url("buton_foto_uchasnic.png");
     background-position:bottom;
     color:#FFF;
     width: 101px;
@@ -100,7 +100,7 @@
 }
 
 #conteiner_bloc_frame .bloc_right .bloc_right_buton .buton_pravila.active {
-    background-image:url("../img/buton_pravila.png");
+    background-image:url("buton_pravila.png");
     background-position:bottom;
     color:#FFF;
     display: inline-block;
@@ -110,7 +110,7 @@
 }
 
 #conteiner_bloc_frame .bloc_right .bloc_right_buton .buton_instrukcia.active {
-    background-image:url("../img/buton_instrukcia.png");
+    background-image:url("buton_instrukcia.png");
     background-position:bottom;
     color:#FFF;
     display: inline-block;
@@ -188,7 +188,7 @@
     display: inline;
     zoom:1;
     display: inline-block;
-    background-image: url('/img/list_photos_ico_prevnext.png');
+    background-image: url('list_photos_ico_prevnext.png');
     background-repeat: no-repeat;
     text-decoration: none;
     font-size: 12px;
@@ -244,7 +244,7 @@
     padding: 9px 9px 0 13px;
     height: 22px;
     overflow: hidden;
-    background: url(/img/topLine.jpg) 0 0 repeat-x #000;
+    background: url(topLine.jpg) 0 0 repeat-x #000;
 }
 .topLine a {
     font-size: 12px;
@@ -255,7 +255,7 @@
 }
 a.name {
     float: left;
-    background: url(/img/nickName.png) 0 0 no-repeat;
+    background: url(nickName.png) 0 0 no-repeat;
     padding: 0 0 0 20px;
 }
 a.closePhoto {
