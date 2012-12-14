@@ -1,6 +1,6 @@
 class FrontendController < ApplicationController
   def index
-    @videoinfo = VideoInfo.get('http://www.youtube.com/watch?v=KoFYm5iX0ZY')
+    @videoinfo = VideoInfo.get('http://www.youtube.com/watch?v=ydXS8tKeAzU')
   end
 
   def gallery
