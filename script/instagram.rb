@@ -28,7 +28,7 @@ Instagram.configure do |config|
   config.client_id = "66f96c768dd64b8887d10ae2feb6d1d6"
   config.client_secret = "1906cbd03e674cca92a4480e7bb64adb"
 end
-@start_time = Time.now.to_i
+@start_time = 1.day.ago
 
 parse = lambda { |tag, start_id = 123456789012345|
   answer = Instagram.tag_recent_media tag, max_tag_id: start_id, min_tag_id: Photo.last_instagram_id(tag)
