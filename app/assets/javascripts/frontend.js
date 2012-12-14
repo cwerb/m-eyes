@@ -88,10 +88,13 @@ $(document).ready(function() {
             }
             else
             {
-                $(document).one('ajax:complete', function(){
-                    $('.foto_uchasnic img:eq(1)').click();
-                });
-                $('.foto_uchasnic > .links > .next').click();
+				if ( $('.foto_uchasnic > .links > .next').length > 0 ) // + kir v 
+				{
+					$(document).one('ajax:complete', function(){
+						$('.foto_uchasnic img:eq(1)').click();
+					});
+					$('.foto_uchasnic > .links > .next').click();
+				}
             }
 
             return false;
