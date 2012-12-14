@@ -145,7 +145,7 @@ $(document).ready(function() {
 			['http://www.maybelline.com.ru/PRODUCTS/Eyes/EYE_SHADOW/Color_Tattoo.aspx','Тени для век EyeStudio Color Tattoo']
 		];
 		$('#liquid img').each(function(){
-			$(this).attr('src', '/assets/products/'+i+'.jpg');
+			$(this).attr('src', '/assets/products/0'+i+'.jpg');
 			$(this).data('url', link_arr[ i-1 ][0]);
 			$(this).parent().find('.title span').html( link_arr[ i-1 ][1]);
 			i++;
