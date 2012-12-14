@@ -21,7 +21,8 @@ class FrontendController < ApplicationController
   def callback
     user = (User.find_by_username(env['omniauth.auth'].info.nickname) || User.new(username: env['omniauth.auth'].info.nickname))
     user.email = session[:email]
-    user.save
+    user.register_token = Digest::MD5.hexdigest(user.email+user.username+Time.now.to_i.to_s)
+    WelcomeMailer.welcome(user).deliver if user.save
     redirect_to '/'
   end
 end
