@@ -1,7 +1,6 @@
-<div class="accept-holder" style="font-family: Arial sans-serif serif; width: 100%;">
-<div class="accept" style="width: 500px; margin: 200px auto 0; text-align: center;">
+<div class="accept-holder" style="font-family: Arial sans-serif serif;">
  <p><%= %(Спасибо за подтверждение участия в конкурсе) if @action == 'accept' -%>
 <%= %(Вы отказались от участия в конкурсе. Ваши данные были удалены из базы) if @action == 'cancel' -%></p>
 <p>Сейчас произойдет переход на официальный канал конкурса</p>
 <p>Если это не произойдет автоматически - кликните по ссылке ниже:</p>
-<%= link_to 'перейти на канал конкурса', '/' %></div></div>
+<%= link_to 'перейти на канал конкурса', '/' %></div>
