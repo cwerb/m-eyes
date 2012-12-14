@@ -1,5 +1,7 @@
 # -*- encoding : utf-8 -*-
 ActiveAdmin.register User do
+  scope :registred, default: true
+
   menu label: 'Участники конкурса'
   actions :index
   filter :email

@@ -6,5 +6,4 @@ class User < ActiveRecord::Base
   validates :username, presence: true, uniqueness: true
   scope :registred, where(register_token: nil)
 
-
 end
