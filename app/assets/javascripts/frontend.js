@@ -95,6 +95,10 @@ $(document).ready(function() {
 					});
 					$('.foto_uchasnic > .links > .next').click();
 				}
+				else
+				{
+					$('.foto_uchasnic .photos').data('event-list',0);
+				}
             }
 
             return false;
