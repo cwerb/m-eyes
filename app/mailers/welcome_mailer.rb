@@ -5,7 +5,6 @@ class WelcomeMailer < ActionMailer::Base
     @user = user
     mail(:to => user.email, :subject => "Мейбилин любит тебя") do |format|
       format.html
-      format.text
     end
   end
 end

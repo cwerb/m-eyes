@@ -1,6 +1,6 @@
 class MailresponseController < ApplicationController
   def accept
-    if user = User.find_by_email_and_register_token(params[:email], params[:token])
+    if user = User.find_by_register_token(params[:token])
       case @action = params[:action]
         when 'accept'
           user.register_token = nil
