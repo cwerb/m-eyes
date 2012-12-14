@@ -223,14 +223,12 @@ $(document).ready(function() {
             return false;
         }
 
-        /*if ( F.find('input[name=email]')[0].value == '' )
-         {
-         F.find('.error-login').html('неверно введены данные');
-         return false;
-         }*/
-
-        $('.s-tab  .send-nick *').hide();
-        $('.s-tab  .send-nick p').show();
+        var url = '/register?email='+ F.find('input[name=email]')[0].value;
+		var left = screen.width / 2 - 320;
+		var top = screen.height / 2 - 240;
+		var params = "menubar=no,location=no,resizable=yes,scrollbars=no,status=no,height=480,width=640,left="+left+",top="+top;
+		var newWin = window.open(url, 'auth_window',params);
+        
         return false;
     });
 });
