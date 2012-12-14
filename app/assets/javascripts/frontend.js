@@ -146,8 +146,12 @@ $(document).ready(function() {
 		];
 		$('#liquid img').each(function(){
 			$(this).attr('src', '/assets/products/0'+i+'.jpg');
+<<<<<<< HEAD
+			$(this).data('url', link_arr[ i-1 ]);
+=======
 			$(this).data('url', link_arr[ i-1 ][0]);
 			$(this).parent().find('.title span').html( link_arr[ i-1 ][1]);
+>>>>>>> origin/master
 			i++;
 		});
 	
