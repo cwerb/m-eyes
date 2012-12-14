@@ -112,7 +112,7 @@ $(document).ready(function() {
         var left = $(this).offset().left-90;
         var top = $(this).offset().top-90;
 
-        $('.foto_uchasnic .photos').prepend('<div class="bigImageContainer"><div class="topLine"><a href="http://instagram.com/'+$(this).attr('data-username')+'" class="name">@'+$(this).attr('data-username')+'</a><a href="javascript:void(0)" class="closePhoto">закрыть</a></div><img src="' + $(this).attr('src') + '" height="100%" /></div>')
+        $('.foto_uchasnic .photos').prepend('<div class="bigImageContainer"><div class="topLine"><a target="_blank" href="http://instagram.com/'+$(this).attr('data-username')+'" class="name">@'+$(this).attr('data-username')+'</a><a href="javascript:void(0)" class="closePhoto">закрыть</a></div><img src="' + $(this).attr('src') + '" height="100%" /></div>')
 
         left = left - $p.offset().left-1;
         top = top - $p.offset().top-1;
