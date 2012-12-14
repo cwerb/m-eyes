@@ -88,10 +88,17 @@ $(document).ready(function() {
             }
             else
             {
-                $(document).one('ajax:complete', function(){
-                    $('.foto_uchasnic img:eq(1)').click();
-                });
-                $('.foto_uchasnic > .links > .next').click();
+				if ( $('.foto_uchasnic > .links > .next').length > 0 ) // + kir v 
+				{
+					$(document).one('ajax:complete', function(){
+						$('.foto_uchasnic img:eq(1)').click();
+					});
+					$('.foto_uchasnic > .links > .next').click();
+				}
+				else
+				{
+					$('.foto_uchasnic .photos').data('event-list',0);
+				}
             }
 
             return false;
@@ -105,7 +112,7 @@ $(document).ready(function() {
         var left = $(this).offset().left-90;
         var top = $(this).offset().top-90;
 
-        $('.foto_uchasnic .photos').prepend('<div class="bigImageContainer"><div class="topLine"><a href="http://instagram.com/'+$(this).attr('data-username')+'" class="name">@'+$(this).attr('data-username')+'</a><a href="javascript:void(0)" class="closePhoto">закрыть</a></div><img src="' + $(this).attr('src') + '" height="100%" /></div>')
+        $('.foto_uchasnic .photos').prepend('<div class="bigImageContainer"><div class="topLine"><a target="_blank" href="http://instagram.com/'+$(this).attr('data-username')+'" class="name">@'+$(this).attr('data-username')+'</a><a href="javascript:void(0)" class="closePhoto">закрыть</a></div><img src="' + $(this).attr('src') + '" height="100%" /></div>')
 
         left = left - $p.offset().left-1;
         top = top - $p.offset().top-1;
@@ -131,15 +138,16 @@ $(document).ready(function() {
 		// Kir V : подменяем картинки
 		var i = 1;
 		var link_arr = [
-			'http://www.maybelline.com.ru/PRODUCTS/Face/POWDER/AffinitonePowder.aspx',
-			'http://www.maybelline.com.ru/PRODUCTS/Face/CONCEALER/AffinitoneConcealer.aspx',
-			'http://www.maybelline.com.ru/PRODUCTS/Face/FOUNDATION/Affinitone.aspx',
-			'http://www.maybelline.com.ru/PRODUCTS/Eyes/MASCARA/OneByOneSatinBlack.aspx',
-			'http://www.maybelline.com.ru/PRODUCTS/Eyes/EYE_SHADOW/Color_Tattoo.aspx'
+			['http://www.maybelline.com.ru/PRODUCTS/Face/POWDER/AffinitonePowder.aspx','Пудра Affinitone Powder'],
+			['http://www.maybelline.com.ru/PRODUCTS/Face/CONCEALER/AffinitoneConcealer.aspx','Маскирующее средство Affinitone Concealer'],
+			['http://www.maybelline.com.ru/PRODUCTS/Face/FOUNDATION/Affinitone.aspx','Тональный крем Affinitone'],
+			['http://www.maybelline.com.ru/PRODUCTS/Eyes/MASCARA/OneByOneSatinBlack.aspx','Тушь для ресниц Satin Black'],
+			['http://www.maybelline.com.ru/PRODUCTS/Eyes/EYE_SHADOW/Color_Tattoo.aspx','Тени для век EyeStudio Color Tattoo']
 		];
 		$('#liquid img').each(function(){
 			$(this).attr('src', '/assets/products/'+i+'.jpg');
-			$(this).data('url', link_arr[ i-1 ]);
+			$(this).data('url', link_arr[ i-1 ][0]);
+			$(this).parent().find('.title span').html( link_arr[ i-1 ][1]);
 			i++;
 		});
 	
