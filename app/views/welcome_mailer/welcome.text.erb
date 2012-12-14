@@ -1,0 +1,6 @@
+Здравствуйте!
+Вы получили это письмо, так как этот e-mail адрес был использован при регистрации  в конкурсе "Макияж для фотографии", организованный Maybelline NY Russia
+Пожалуйста, подтвердите регистрацию перейдя по ссылке:
+<%= %(http://maybelline.uprock.pro/ivereceivedsomething/#{@user.email}/#{@user.register_token}/accept/) -%>
+Если Вы не регистрировались на этом форуме, прожалуйста, пройдите по ссылке и мы исключим ваш адрес из рассылки:
+<%= %(http://maybelline.uprock.pro/ivereceivedsomething/#{@user.email}/#{@user.register_token}/cancel/) -%>

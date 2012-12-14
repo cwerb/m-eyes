@@ -1,10 +1,13 @@
-Подтвердите, что вы зарегестривроались как участник в фотокаонкурсе мейбелин (ссылка на канал) перейдя по сссылке
-
-если вы не имееете отношения к етому письму то передйтие по етой ссылке
-
-
-
-мы куда то преезодим и там пишут
-
-
-спасибо за подтвержение
+<h2>Здравствуйте!</h2>
+<p>Вы получили это письмо, так как этот e-mail адрес был использован при регистрации  в конкурсе "Макияж для фотографии", организованный Maybelline NY Russia.</p>
+<p>Пожалуйста, подтвердите регистрацию перейдя по ссылке:</p>
+<br /><br />
+<a href="<%= %(http://maybelline.uprock.pro/ivereceivedsomething/#{@user.email}/#{@user.register_token}/cancel/) -%>" target="_blank">Подтвердить email</a>
+<p>Если ссылка не открывается - скопируйте следующий адрес в адресную строку:</p>
+<p><%= %(http://maybelline.uprock.pro/ivereceivedsomething/#{@user.email}/#{@user.register_token}/accept/) -%></p>
+<br /><br />
+<p>Если Вы не регистрировались на этом сайте, прожалуйста, пройдите по ссылке и мы исключим ваш адрес из рассылки:</p>
+<br /><br />
+<a href="<%= %(http://maybelline.uprock.pro/ivereceivedsomething/#{@user.email}/#{@user.register_token}/cancel/) -%>" target="_blank">Удалите меня из рассылки!</a>
+<p>Если ссылка не открывается - скопируйте следующий адрес в адресную строку:</p>
+<p><%= %(http://maybelline.uprock.pro/ivereceivedsomething/#{@user.email}/#{@user.register_token}/cancel/) -%></p>
