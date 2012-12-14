@@ -138,11 +138,11 @@ $(document).ready(function() {
 		// Kir V : подменяем картинки
 		var i = 1;
 		var link_arr = [
-			['http://www.maybelline.com.ru/PRODUCTS/Face/POWDER/AffinitonePowder.aspx','Пудра'],
-			['http://www.maybelline.com.ru/PRODUCTS/Face/CONCEALER/AffinitoneConcealer.aspx','Маскирующее средство'],
-			['http://www.maybelline.com.ru/PRODUCTS/Face/FOUNDATION/Affinitone.aspx','Тональный крем'],
-			['http://www.maybelline.com.ru/PRODUCTS/Eyes/MASCARA/OneByOneSatinBlack.aspx','Тушь для ресниц'],
-			['http://www.maybelline.com.ru/PRODUCTS/Eyes/EYE_SHADOW/Color_Tattoo.aspx','Тени для век']
+			['http://www.maybelline.com.ru/PRODUCTS/Face/POWDER/AffinitonePowder.aspx','Пудра Affinitone Powder'],
+			['http://www.maybelline.com.ru/PRODUCTS/Face/CONCEALER/AffinitoneConcealer.aspx','Маскирующее средство Affinitone Concealer'],
+			['http://www.maybelline.com.ru/PRODUCTS/Face/FOUNDATION/Affinitone.aspx','Тональный крем Affinitone'],
+			['http://www.maybelline.com.ru/PRODUCTS/Eyes/MASCARA/OneByOneSatinBlack.aspx','Тушь для ресниц Satin Black'],
+			['http://www.maybelline.com.ru/PRODUCTS/Eyes/EYE_SHADOW/Color_Tattoo.aspx','Тени для век EyeStudio Color Tattoo']
 		];
 		$('#liquid img').each(function(){
 			$(this).attr('src', '/assets/products/'+i+'.jpg');
