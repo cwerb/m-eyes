@@ -147,7 +147,7 @@ $(document).ready(function() {
 		$('#liquid img').each(function(){
 			$(this).attr('src', '/assets/products/'+i+'.jpg');
 			$(this).data('url', link_arr[ i-1 ][0]);
-			$(this).find('.title span').html( link_arr[ i-1 ][1]);
+			$(this).parent().find('.title span').html( link_arr[ i-1 ][1]);
 			i++;
 		});
 	
