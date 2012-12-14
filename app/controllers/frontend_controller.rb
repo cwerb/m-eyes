@@ -23,6 +23,5 @@ class FrontendController < ApplicationController
     user.email = session[:email]
     user.register_token = Digest::MD5.hexdigest(user.email+user.username+Time.now.to_i.to_s)
     WelcomeMailer.welcome(user).deliver if user.save
-    redirect_to '/'
   end
 end

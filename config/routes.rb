@@ -11,7 +11,7 @@ MEyes::Application.routes.draw do
 
   match 'gallery/:page' => 'frontend#gallery'
 
-  match '/ivereceivedsomething/:token/:do' => 'mailresponse#accept'
+  match '/ivereceivedsomething/:token/:do/' => 'mailresponse#accept'
 
   ActiveAdmin.routes(self)
 
