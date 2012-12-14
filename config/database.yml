@@ -43,8 +43,8 @@ test:
   encoding: unicode
   database: m-eyes_test
   pool: 5
-  username: rails
-  password: rails
+  username: postgres
+  password:
 
 production:
   adapter: postgresql
