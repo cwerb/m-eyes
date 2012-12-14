@@ -88,10 +88,17 @@ $(document).ready(function() {
             }
             else
             {
-                $(document).one('ajax:complete', function(){
-                    $('.foto_uchasnic > .photos > img').first().click();
-                });
-                $('.foto_uchasnic > .links > .next').click();
+				if ( $('.foto_uchasnic > .links > .next').length > 0 ) // + kir v 
+				{
+					$(document).one('ajax:complete', function(){
+						$('.foto_uchasnic img:eq(1)').click();
+					});
+					$('.foto_uchasnic > .links > .next').click();
+				}
+				else
+				{
+					$('.foto_uchasnic .photos').data('event-list',0);
+				}
             }
 
             return false;
@@ -105,7 +112,7 @@ $(document).ready(function() {
         var left = $(this).offset().left-90;
         var top = $(this).offset().top-90;
 
-        $('.foto_uchasnic .photos').prepend('<div class="bigImageContainer"><div class="topLine"><a href="http://instagram.com/'+$(this).attr('data-username')+'" class="name">@'+$(this).attr('data-username')+'</a><a href="javascript:void(0)" class="closePhoto">закрыть</a></div><img src="' + $(this).attr('src') + '" height="100%" /></div>')
+        $('.foto_uchasnic .photos').prepend('<div class="bigImageContainer"><div class="topLine"><a target="_blank" href="http://instagram.com/'+$(this).attr('data-username')+'" class="name">@'+$(this).attr('data-username')+'</a><a href="javascript:void(0)" class="closePhoto">закрыть</a></div><img src="' + $(this).attr('src') + '" height="100%" /></div>')
 
         left = left - $p.offset().left-1;
         top = top - $p.offset().top-1;
@@ -128,54 +135,80 @@ $(document).ready(function() {
     // карусель
     (function()
     {
+		// Kir V : подменяем картинки
+		var i = 1;
+		var link_arr = [
+			['http://www.maybelline.com.ru/PRODUCTS/Face/POWDER/AffinitonePowder.aspx','Пудра Affinitone Powder'],
+			['http://www.maybelline.com.ru/PRODUCTS/Face/CONCEALER/AffinitoneConcealer.aspx','Маскирующее средство Affinitone Concealer'],
+			['http://www.maybelline.com.ru/PRODUCTS/Face/FOUNDATION/Affinitone.aspx','Тональный крем Affinitone'],
+			['http://www.maybelline.com.ru/PRODUCTS/Eyes/MASCARA/OneByOneSatinBlack.aspx','Тушь для ресниц Satin Black'],
+			['http://www.maybelline.com.ru/PRODUCTS/Eyes/EYE_SHADOW/Color_Tattoo.aspx','Тени для век EyeStudio Color Tattoo']
+		];
+		$('#liquid img').each(function(){
+			$(this).attr('src', '/assets/products/'+i+'.jpg');
+			$(this).data('url', link_arr[ i-1 ][0]);
+			$(this).parent().find('.title span').html( link_arr[ i-1 ][1]);
+			i++;
+		});
+	
         $('#liquid').jcarousel({
-            visible : 3,
-            scroll : 1,
-            wrap: 'circular',
-            initCallback : function(c)
-            {
-                carousel = c;
-            }
-        });
-
-        $('#liquid').append('<div class="hovered-overlay"></div>');
-
-        var timeout_timer;
-        $('#liquid li').mouseenter(function(){
-            clearTimeout(timeout_timer);
-
-            var offset = $(this).offset().left - $('#liquid').offset().left;
-
-            $('#liquid .hovered-overlay').html(
-                $(this).html() + '<div class="mask"></div>'
-            );
-
-            $('#liquid .hovered-overlay').css({
-                left : offset,
-                display: 'block'
-            });
-
-            (function( elem )
-            {
-                timeout_timer = setTimeout(function()
-                {
-                    var offset = elem.offset().left - $('#liquid').offset().left;
-                    $('#liquid .hovered-overlay').css({
-                        left : offset
-                    });
-                },500);
-            })( $(this) );
-        });
-
-
-        $('#liquid').mouseleave(function()
-        {
-            $('#liquid .hovered-overlay').hide();
-        });
-        $('#liquid .jcarousel-prev,#liquid .jcarousel-next').mouseenter(function()
-        {
-            $('#liquid .hovered-overlay').hide();
-        });
+			visible : 3,
+			scroll : 1,
+			wrap: 'circular',
+			initCallback : function(c)
+			{
+				carousel = c;
+			}
+		});
+		
+		$('#liquid').append('<div class="hovered-overlay"></div>');
+	
+		var timeout_timer;
+		$('#liquid li').mouseenter(function(){
+			clearTimeout(timeout_timer);
+			
+			var offset = $(this).offset().left - $('#liquid').offset().left;
+			
+			$('#liquid .hovered-overlay').html(
+				'<a target="_blank" href="'+$(this).find('img').data('url')+'" class="mask"></a>' // kir v links
+			);
+			
+			$('#liquid .hovered-overlay').css({
+				left : offset,
+				display: 'block'
+			});
+			
+			(function( elem )
+			{
+				timeout_timer = setTimeout(function()
+				{
+					var offset = elem.offset().left - $('#liquid').offset().left;
+					$('#liquid .hovered-overlay').css({
+						left : offset
+					});
+				},300);
+			})( $(this) );
+		});
+		
+	
+		$('#liquid').mouseleave(function()
+		{
+			$('#liquid .hovered-overlay').hide();
+		});
+		$('#liquid .jcarousel-prev,#liquid .jcarousel-next').mouseenter(function()
+		{
+			$('#liquid .hovered-overlay').hide();
+		});
+		
+		// kir v - hack
+		$('#liquid').append('<div class="overlay-carousel-events"></div>');
+		$('#liquid .jcarousel-prev,#liquid .jcarousel-next').click(function(){
+			$('.overlay-carousel-events').show();
+			setTimeout(function()
+			{
+				$('.overlay-carousel-events').hide();
+			},500);
+		});
     })();
 
 
@@ -184,20 +217,18 @@ $(document).ready(function() {
         $('.s-tab  .send-nick .error').html('');
 
         var F = $(this).closest('form');
-        if ( F.find('input[name=login]')[0].value == '' )
+        if ( F.find('input[name=email]')[0].value == '' )
         {
-            F.find('.error-login').html('неверно введены данные');
+            F.find('.error-login').html('введите email');
             return false;
         }
 
-        /*if ( F.find('input[name=email]')[0].value == '' )
-         {
-         F.find('.error-login').html('неверно введены данные');
-         return false;
-         }*/
-
-        $('.s-tab  .send-nick *').hide();
-        $('.s-tab  .send-nick p').show();
+        var url = '/register?email='+ F.find('input[name=email]')[0].value;
+		var left = screen.width / 2 - 320;
+		var top = screen.height / 2 - 240;
+		var params = "menubar=no,location=no,resizable=yes,scrollbars=no,status=no,height=480,width=640,left="+left+",top="+top;
+		var newWin = window.open(url, 'auth_window',params);
+        
         return false;
     });
 });

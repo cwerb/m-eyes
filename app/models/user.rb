@@ -1,9 +1,9 @@
 # -*- encoding : utf-8 -*-
 class User < ActiveRecord::Base
-  attr_accessible :email, :username
+  require 'digest/md5'
+  attr_accessible :email, :username, :register_token
   validates :email, email: true
   validates :username, presence: true, uniqueness: true
-
-  after_commit {|user| WelcomeMailer.welcome(user.email).deliver}
+  scope :registred, where(register_token: nil)
 
 end

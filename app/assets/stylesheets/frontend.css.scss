@@ -320,27 +320,38 @@ a.closePhoto {
 }
 
 #liquid .hovered-overlay {
-  position: absolute;
-  width: 180px;
-  height: 100%;
-  padding: 5px 0;
-  background: #fff;
-  box-shadow: 0 3px 10px #aaa;
-  left: 0;
-  top: -5px;
-  z-index: 2;
-  display: none;
-  text-align: center;
-  margin-left: -1px;
-  cursor: pointer;
+	position: absolute;
+	width: 180px;
+	height: 100%;
+	padding: 5px 0;
+	box-shadow: 0 3px 10px #aaa;
+	left: 0;
+	top: -5px;
+	z-index: 2;
+	display: none;
+	text-align: center;
+	margin-left: -1px;
+	cursor: pointer;
+	background: url('carousel_overlay_mask.png') transparent;
 }
 #liquid .hovered-overlay .mask {
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 100;
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 100;
+	background: url('1px.gif');
+	cursor: pointer;
+}
+#liquid .overlay-carousel-events {
+	position: absolute;
+	z-index: 999;
+	width: 100%;
+	height: 100%;
+	left: 0;
+	top: 0;
+	display: none;
 }
 
 .s-tab .send-nick {
@@ -423,4 +434,55 @@ a.closePhoto {
 .s-video .video-footer a:hover {
 	color: #1C62B9;
 	text-decoration: underline;
+}
+
+
+.foto_uchasnic .photos .bigImageContainer {
+	height: 294px;
+}
+.foto_uchasnic .photos .bigImageContainer img {
+	width: 263px;
+	height: 263px;
+	margin: 0;
+}
+.foto_uchasnic .photos .bigImageContainer .topLine {
+	background: #000;
+	background: -moz-linear-gradient(top, #323232, #020202);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#323232), color-stop(100%,#020202));  
+	background: -webkit-linear-gradient(top, #323232, #020202);  
+	background: -o-linear-gradient(top, #323232, #020202);
+	background: -ms-linear-gradient(top, #323232, #020202);
+	background: linear-gradient(top, #323232, #020202);
+	filter: progid:DXImageTransform.Microsoft.gradient(enabled='true',startColorstr=#323232,endColorstr=#020202,GradientType=0); zoom: 1;    
+	padding-left: 9px;
+}
+.foto_uchasnic .photos .bigImageContainer .topLine a:hover {
+	text-decoration: none;
+}
+
+#conteiner_bloc_frame .bloc_right .bloc_right_buton span {
+	display: block;
+	top: 0;
+	height: 32px;
+	line-height: 32px;
+	text-align: center;
+	margin: 0;
+}
+
+.s-tab .send-nick input {
+	width: 137px;
+}
+.s-tab .send-nick button {
+	width: 115px;
+}
+
+#liquid .title span {
+	padding: 0 10px;
+}
+
+#conteiner_bloc_frame .bloc_right .pravila a {
+	color:#438bc5;
+}
+#conteiner_bloc_frame .bloc_right .pravila a:hover {
+	text-decoration: none;
 }

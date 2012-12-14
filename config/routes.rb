@@ -1,4 +1,8 @@
 MEyes::Application.routes.draw do
+  get "mailresponse/accept"
+
+  get "mailresponse/notaccept"
+
   root to: "frontend#index"
 
   match 'register' => "frontend#create"
@@ -6,6 +10,8 @@ MEyes::Application.routes.draw do
   match '/auth/instagram/callback' => 'frontend#callback'
 
   match 'gallery/:page' => 'frontend#gallery'
+
+  match '/ivereceivedsomething/:token/:do' => 'mailresponse#accept'
 
   ActiveAdmin.routes(self)
 

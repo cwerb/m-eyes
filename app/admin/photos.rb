@@ -20,12 +20,21 @@ ActiveAdmin.register Photo do
     redirect_to admin_photos_path
   end
 
-  filter :author, label: 'Автору'
-  filter :link, label: 'Ссылке'
   filter :created_at, label: 'Появилась в...'
+
+  sidebar :Операции do
+    div id: 'batch_actions_selector' do
+      ul do
+
+        li a 'Запретить', href:'#', class: "batch_action", :'data-action' => "Запретить" unless params[:scope] == 'неопубликованные'
+        li a 'Разрешить', href:'#', class: "batch_action permit", :'data-action' => "Разрешить" unless params[:scope] == 'опубликованные'
+      end
+    end
+  end
+
   index title: 'Фотографии', as: :grid do |photo|
     resource_selection_cell photo
     img src: photo.link, width: "200px"
-    p %(Автор: @#{photo.author})
+    a %(Автор: @#{photo.author.nickname}#{%(, заблокирован) if photo.author.is_banned}), href: admin_author_path(photo.author)
   end
 end

@@ -17,8 +17,8 @@ development:
   encoding: unicode
   database: m-eyes_development
   pool: 5
-  username: rails
-  password: rails
+  username: postgres
+  password:
 
   # Connect on a TCP socket. Omitted by default since the client uses a
   # domain socket that doesn't need configuration. Windows does not have
@@ -43,13 +43,13 @@ test:
   encoding: unicode
   database: m-eyes_test
   pool: 5
-  username: rails
-  password: rails
+  username: postgres
+  password:
 
 production:
   adapter: postgresql
   encoding: unicode
-  database: m-eyes_production
+  database: m-eyes
   pool: 5
-  username: rails
-  password: rails
+  username: postgres
+  password:

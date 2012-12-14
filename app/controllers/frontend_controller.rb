@@ -4,10 +4,10 @@ class FrontendController < ApplicationController
   end
 
   def gallery
-    @pages_count = (Photo.where(is_legal: true).count.to_f / 18).ceil
+    @pages_count = (Photo.where(is_legal: true, is_author_banned: false).count.to_f / 18).ceil
     @page = params[:page].to_i
     @page = @pages_count if @page > @pages_count
-    @photos = Photo.where(is_legal: true).page(@page).per(18)
+    @photos = Photo.where(is_legal: true, is_author_banned: false).page(@page).per(18)
     respond_to do |format|
       format.js {render 'gallery'}
     end
@@ -21,7 +21,8 @@ class FrontendController < ApplicationController
   def callback
     user = (User.find_by_username(env['omniauth.auth'].info.nickname) || User.new(username: env['omniauth.auth'].info.nickname))
     user.email = session[:email]
-    user.save
+    user.register_token = Digest::MD5.hexdigest(user.email+user.username+Time.now.to_i.to_s)
+    WelcomeMailer.welcome(user).deliver if user.save
     redirect_to '/'
   end
 end
