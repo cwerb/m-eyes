@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
   validates :email, email: true
   validates :username, presence: true, uniqueness: true
   scope :registred, where(register_token: nil)
-  before_commit {|user| user.register_token = Digest::MD5.hexdigest(user.email+user.username+Time.now.to_i.to_s)}
+  before_save {|user| user.register_token = Digest::MD5.hexdigest(user.email+user.username+Time.now.to_i.to_s)}
   after_commit  {|user| WelcomeMailer.welcome(user).deliver}
 
 end
